@@ -66,7 +66,7 @@ return {
                     enabled = false,
                 },
                 hover = {
-                   enabled = false,
+                    enabled = false,
                 },
             },
         }
@@ -157,7 +157,7 @@ return {
                             end
                         },
                         { key = "q", icon = "󰅗", desc = "Quit", action = ":qa!" },
-                    }
+                    },
                 },
                 formats = {
                     desc = { "%s", hl = "Comment" },
@@ -165,15 +165,15 @@ return {
                     icon = { "%s", hl = "Comment" }
                 },
                 sections = {
-                    {
-                        section = "terminal",
-                        cmd = "chafa ~/.config/nvim/assets/splash.jpeg -f symbols --symbols vhalf -s 37x12 --stretch; sleep .1",
-                        height = 12,
-                        width = 37,
-                        padding = 1,
-                        align = "center",
-                        indent = 12
-                    },
+                    -- {
+                    --     section = "terminal",
+                    --     cmd = "chafa ~/.config/nvim/assets/splash.jpeg -f symbols --symbols vhalf -s 37x12 --stretch; sleep .1",
+                    --     height = 12,
+                    --     width = 37,
+                    --     padding = 1,
+                    --     align = "center",
+                    --     indent = 12
+                    -- },
                     {
                         section = "keys",
                         gap = 1,
