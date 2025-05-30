@@ -1,6 +1,6 @@
-# c4s3vim – all-purpose neovim configuration
+# milcvim 🥛 – all-purpose neovim configuration
 
-c4s3vim is a personal feature-packed language-agnostic neovim config which
+milcvim is a personal feature-packed language-agnostic neovim config which
 doesn't compromise on speed or design.
 
 ## features
