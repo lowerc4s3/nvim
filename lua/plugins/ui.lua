@@ -19,28 +19,7 @@ return {
     {
         -- General UI replacements
         "folke/noice.nvim",
-        dependencies = {
-            "MunifTanjim/nui.nvim",
-            {
-                -- Notification manager
-                "rcarriga/nvim-notify",
-                opts = {
-                    on_open = function(win)
-                        local config = vim.api.nvim_win_get_config(win)
-                        config.border = "single"
-                        vim.api.nvim_win_set_config(win, config)
-                    end,
-                    stages = "fade",
-                    icons = {
-                        ERROR = "",
-                        WARN = "",
-                        INFO = "󰋽",
-                        DEBUG = "",
-                        TRACE = "󰭰",
-                    }
-                }
-            },
-        },
+        dependencies = "Muniftanjim/nui.nvim",
         opts = {
             cmdline = {
                 view = "cmdline",
@@ -207,6 +186,16 @@ return {
                         padding = 1
                     }
                 }
+            },
+            notifier = {
+                style = "minimal",
+                icons = {
+                    error = " ",
+                    warn = " ",
+                    info = "󰋽 ",
+                    debug = " ",
+                    trace = " ",
+                },
             }
         }
     },
