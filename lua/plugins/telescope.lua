@@ -23,7 +23,7 @@ return {
         return {
             defaults = {
                 initial_mode = 'insert',
-                prompt_prefix = "  ",
+                prompt_prefix = "  ", -- 
                 selection_caret = " ",
                 entry_prefix = " ",
                 scroll_strategy = "limit",

@@ -45,14 +45,19 @@ return {
             cmdline = {
                 view = "cmdline",
                 format = {
-                    cmdline = { pattern = "^:", icon = "", lang = "vim" },
-                    search_down = { kind = "search", pattern = "^/", icon = "", lang = "regex" },
-                    search_up = { kind = "search", pattern = "^%?", icon = "", lang = "regex" },
-                    filter = { pattern = "^:%s*!", icon = "$", lang = "bash" },
-                    lua = { pattern = { "^:%s*lua%s+", "^:%s*lua%s*=%s*", "^:%s*=%s*" }, icon = "", lang = "lua" },
+                    cmdline = { pattern = "^:", icon = " ", lang = "vim" },
+                    search_down = { kind = "search", pattern = "^/", icon = " /", lang = "regex" },
+                    search_up = { kind = "search", pattern = "^%?", icon = " ?", lang = "regex" },
+                    filter = { pattern = "^:%s*!", icon = " $", lang = "bash" },
+                    lua = { pattern = { "^:%s*lua%s+", "^:%s*lua%s*=%s*", "^:%s*=%s*" }, icon = " ", lang = "lua" },
+                    input = { view = "cmdline", icon = " " },
                     help = false,
-                    input = { view = "cmdline_input", icon = "" },
                 }
+            },
+            popupmenu = { enabled = false },
+            commands = {
+                errors = { view = "split" },
+                last = { view = "split" },
             },
             lsp = {
                 progress = {
@@ -97,8 +102,6 @@ return {
     {
         -- Highlight todo comments
         'folke/todo-comments.nvim',
-        cmd = { 'TodoTrouble', 'TodoTelescope' },
-        event = { 'BufReadPost', 'BufNewFile' },
         dependencies = 'nvim-lua/plenary.nvim',
         opts = {
             signs = false,
@@ -121,7 +124,7 @@ return {
             user_default_options = {
                 names = false,
                 mode = "virtualtext",
-                virtualtext = "",
+                virtualtext = "",
                 virtualtext_inline = true,
             },
             css = { css = true }
