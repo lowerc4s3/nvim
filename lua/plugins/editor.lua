@@ -44,10 +44,12 @@ return {
     },
 
     {
-        -- Enhance w, e, b motions
-        -- (disabled atm)
+        -- Make w, e, b motions move by subwords
         "chrisgrieser/nvim-spider",
-        enabled = false,
+        dependencies = {
+            "rami3l/nvim-spider-utf8",
+            build = "rockspec"
+        },
         keys = {
             {
                 "e",
@@ -68,7 +70,7 @@ return {
                 "ge",
                 "<cmd>lua require('spider').motion('ge')<CR>",
                 mode = { "n", "o", "x" },
-            }
+            },
         },
     },
 
@@ -123,19 +125,4 @@ return {
         'famiu/bufdelete.nvim',
         cmd = 'Bdelete',
     },
-
-    -- {
-    --     -- Switch to english layout when entering insert mode
-    --     "ivanesmantovich/xkbswitch.nvim",
-    --     enabled = false,
-    --     event = { "InsertEnter", "CmdLineEnter" },
-    --     opts = {},
-    -- },
-
-    -- {
-    --     -- Automate bullet lists
-    --     "bullets-vim/bullets.vim",
-    --     enabled = false,
-    --     ft = { "markdown", "text", "gitcommit" },
-    -- }
 }
