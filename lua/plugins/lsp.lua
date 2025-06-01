@@ -8,6 +8,7 @@ return {
     {
         -- External tooling installer
         "mason-org/mason.nvim",
+        lazy = false,
         opts = {}
     },
 
@@ -34,32 +35,6 @@ return {
                 },
             }
         }
-    },
-
-    {
-        -- Better Golang support (disabled atm)
-        "ray-x/go.nvim",
-        enabled = false,
-        build = function() require("go.install").update_all_sync() end, -- if you need to install/update all binaries
-        dependencies = {
-            "ray-x/guihua.lua",
-            "nvim-treesitter/nvim-treesitter",
-        },
-        ft = { "go", 'gomod' },
-        opts = {
-            disable_defaults = true,
-            go = 'go',
-            -- HACK: With disabled defaults plugin throws error about empty preludes,
-            -- so we set it as in default config
-            preludes = {
-                default = function()
-                    return {}
-                end,
-                GoRun = function()
-                    return {}
-                end,
-            }
-        },
     },
 
     {
@@ -122,35 +97,6 @@ return {
     },
 
     {
-        -- Language server loading status (disabled atm)
-        'j-hui/fidget.nvim',
-        enabled = false,
-        opts = {
-            progress = {
-                display = {
-                    done_icon = "󰄬",
-                    progress_icon = { "dots" },
-                }
-            }
-        }
-    },
-
-    {
-        -- VS Code like winbar
-        -- TODO: Look for alternatives (repo archived)
-        'utilyre/barbecue.nvim',
-        enabled = false,
-        dependencies = 'SmiteshP/nvim-navic',
-        opts = {
-            show_dirname = true,
-            show_basename = true,
-            show_modified = true,
-            symbols = { modified = '󰆓', },
-            exclude_filetypes = { "toggleterm", "terminal" },
-        }
-    },
-
-    {
         -- Code diagnostics window
         'folke/trouble.nvim',
         dependencies = 'kyazdani42/nvim-web-devicons',
@@ -158,36 +104,6 @@ return {
         opts = {
             use_diagnostic_signs = true,
         }
-    },
-
-    {
-        -- Code action menu with preview
-        -- (disabled atm)
-        "rachartier/tiny-code-action.nvim",
-        enabled = false,
-        dependencies = {
-            "nvim-lua/plenary.nvim",
-            "nvim-telescope/telescope.nvim",
-        },
-        event = "LspAttach",
-        opts = {
-            backend = "delta",
-            picker = "telescope",
-            backend_opts = {
-                delta = {
-                    header_lines_to_remove = 4
-                }
-            }
-        },
-    },
-
-    {
-        -- Pretty hover formatting
-        "Fildo7525/pretty_hover",
-        enabled = false,
-        event = "LspAttach",
-        lazy = true,
-        opts = {}
     },
 
     -- JSON schemas catalog
