@@ -19,21 +19,21 @@ return {
                         text = "•"
                     }
                 },
-                -- tables = {
-                --     parts = {
-                --         top = { "┌", "─", "┐", "┬" },
-                --         header = { "│", "│", "│" },
-                --         separator = { "├", "─", "┤", "┼" },
-                --         row = { "│", "│", "│" },
-                --         bottom = { "└", "─", "┘", "┴" },
-                --
-                --         overlap = { "┝", "━", "┥", "┿" },
-                --
-                --         align_left = "╼",
-                --         align_right = "╾",
-                --         align_center = { "╴", "╶" }
-                --     }
-                -- }
+                tables = {
+                    parts = {
+                        top = { "┌", "─", "┐", "┬" },
+                        header = { "│", "│", "│" },
+                        separator = { "├", "─", "┤", "┼" },
+                        row = { "│", "│", "│" },
+                        bottom = { "└", "─", "┘", "┴" },
+
+                        overlap = { "┝", "━", "┥", "┿" },
+
+                        align_left = "╼",
+                        align_right = "╾",
+                        align_center = { "╴", "╶" }
+                    }
+                }
             },
             latex = {
                 -- TODO: Finish latex config
@@ -47,49 +47,4 @@ return {
             }
         }
     },
-
-    {
-        -- Markdown live preview in browser
-        'iamcco/markdown-preview.nvim',
-        enabled = false,
-        cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
-        ft = 'markdown',
-        build = ':call mkdp#util#install()'
-    }
 }
---[[
---    marker_minus = {
-        add_padding = true,
-        conceal_on_checkboxes = true,
-
-        text = "",
-        hl = "MarkviewListItemMinus"
-    },
-
-    marker_plus = {
-        add_padding = true,
-        conceal_on_checkboxes = true,
-
-        text = "",
-        hl = "MarkviewListItemPlus"
-    },
-
-    marker_star = {
-        add_padding = true,
-        conceal_on_checkboxes = true,
-
-        text = "",
-        hl = "MarkviewListItemStar"
-    },
-
-    marker_dot = {
-        add_padding = true,
-        conceal_on_checkboxes = true,
-    },
-
-    marker_parenthesis = {
-        add_padding = true,
-        conceal_on_checkboxes = true,
-    }
-
---]]
