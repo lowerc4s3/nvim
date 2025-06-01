@@ -99,7 +99,6 @@ return {
     {
         -- Code diagnostics window
         'folke/trouble.nvim',
-        dependencies = 'kyazdani42/nvim-web-devicons',
         cmd = 'Trouble',
         opts = {
             use_diagnostic_signs = true,

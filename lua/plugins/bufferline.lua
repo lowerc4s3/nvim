@@ -3,7 +3,6 @@ return {
         -- Tabs
         'akinsho/bufferline.nvim',
         event = 'VeryLazy',
-        dependencies = 'kyazdani42/nvim-web-devicons',
         opts = {
             options = {
                 themable = false,

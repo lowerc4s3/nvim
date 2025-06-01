@@ -1,7 +1,6 @@
 return {
     -- Status line
     'nvim-lualine/lualine.nvim',
-    dependencies = 'kyazdani42/nvim-web-devicons',
     opts = function()
         -- Elements customization
 
@@ -40,7 +39,8 @@ return {
 
         local filename = {
             'filename',
-            padding = 1,
+            -- padding = 1,
+            padding = { left = 0, right = 1 },
             path = 1,
             symbols = { modified = '󰆓', readonly = '󰌾', unnamed = '' },
             fmt = function(str) return str:gsub("/", "  ") end

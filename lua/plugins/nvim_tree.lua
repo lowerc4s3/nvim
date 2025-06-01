@@ -1,7 +1,6 @@
 return {
     -- File tree
     'kyazdani42/nvim-tree.lua',
-    dependencies = 'kyazdani42/nvim-web-devicons',
     cmd = {
         'NvimTreeClipboard',
         'NvimTreeClose',
