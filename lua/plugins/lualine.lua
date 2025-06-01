@@ -31,6 +31,16 @@ return {
             padding = { left = 0, right = 1 }
         }
 
+        local basename = {
+            function()
+                local path = vim.fn.expand("%:h")
+                if path == "." or path == "" then return "" else return path .. "/" end
+            end,
+            padding = { left = 1, right = 0 },
+            fmt = function(str) return str:gsub("/", "  "):gsub("%s+$", "") end,
+            color = 'Comment'
+        }
+
         local filetype = {
             'filetype',
             padding = { left = 1, right = 0 },
@@ -39,10 +49,22 @@ return {
 
         local filename = {
             'filename',
-            padding = { left = 0, right = 1 },
-            path = 1,
-            symbols = { modified = '', readonly = '', unnamed = '' },
-            fmt = function(str) return str:gsub("/", "  ") end
+            padding = 0,
+            path = 0,
+            file_status = false,
+        }
+
+        local filestatus = {
+            function()
+                if vim.bo.modified then
+                    return ""
+                elseif not vim.bo.modifiable or vim.bo.readonly then
+                    return ""
+                end
+                return ""
+            end,
+            padding = 1,
+            color = 'MiniIconsOrange'
         }
 
         local diagnostics = {
@@ -101,7 +123,7 @@ return {
             sections = {
                 lualine_a = { mode, searchcount, selectioncount },
                 lualine_b = { branch, diff },
-                lualine_c = { filetype, filename },
+                lualine_c = { basename, filetype, filename, filestatus },
                 lualine_x = { diagnostics, showmode },
                 lualine_y = { tabsize, encoding, fileformat },
                 lualine_z = { progress, 'location' }
