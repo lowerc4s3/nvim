@@ -20,12 +20,12 @@ return {
         },
         opts = {
             icons = {
-                folder_closed = '󰉋',
-                folder_open = '󰉋',
+                folder_closed = '',
+                folder_open = '',
             },
             signs = {
-                fold_closed = '',
-                fold_open = '',
+                fold_closed = '',
+                fold_open = '',
             },
             file_panel = {
                 win_config = { width = 30 }

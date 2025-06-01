@@ -3,14 +3,24 @@ return {
         -- Icons provider
         'echasnovski/mini.icons',
         lazy = true,
-        -- Lazily mock devicons
+        -- Lazily mock devicons (snippet by folke)
         specs = { "nvim-tree/nvim-web-devicons", enabled = false, optional = true },
         init = function()
             package.preload["nvim-web-devicons"] = function()
                 require("mini.icons").mock_nvim_web_devicons()
                 return package.loaded["nvim-web-devicons"]
             end
-        end
+        end,
+        opts = {
+            file = {
+                LICENSE         = { glyph = '' },
+                ['LICENSE.md']  = { glyph = '' },
+                ['LICENSE.txt'] = { glyph = '' },
+                README          = { glyph = '󰭤' },
+                ['README.md']   = { glyph = '󰭤' },
+                ['README.txt']  = { glyph = '󰭤' },
+            }
+        }
     },
 
     {
@@ -42,7 +52,7 @@ return {
                     search_down = { kind = "search", pattern = "^/", icon = " /", lang = "regex" },
                     search_up = { kind = "search", pattern = "^%?", icon = " ?", lang = "regex" },
                     filter = { pattern = "^:%s*!", icon = " $", lang = "bash" },
-                    lua = { pattern = { "^:%s*lua%s+", "^:%s*lua%s*=%s*", "^:%s*=%s*" }, icon = " ", lang = "lua" },
+                    lua = { pattern = { "^:%s*lua%s+", "^:%s*lua%s*=%s*", "^:%s*=%s*" }, icon = " 󰢱", lang = "lua" },
                     input = { view = "cmdline", icon = " " },
                     help = false,
                 }
@@ -55,7 +65,7 @@ return {
             lsp = {
                 progress = {
                     format_done = {
-                        { "󰄬 ", hl_group = "NoiceLspProgressSpinner" },
+                        { " ", hl_group = "NoiceLspProgressSpinner" },
                         { "{data.progress.title} ", hl_group = "NoiceLspProgressTitle" },
                         { "{data.progress.client} ", hl_group = "NoiceLspProgressClient" },
                     }
@@ -123,12 +133,12 @@ return {
         opts = {
             signs = false,
             keywords = {
-                FIX  = { icon = " ", color = "error", alt = { "FIXME", "BUG", "FIXIT", "ISSUE" } },
-                TODO = { icon = " ", color = "info" },
-                HACK = { icon = " ", color = "warning" },
-                WARN = { icon = " ", color = "warning", alt = { "WARNING", "XXX" } },
+                FIX  = { icon = " ", color = "error", alt = { "FIXME", "BUG", "FIXIT", "ISSUE" } },
+                TODO = { icon = " ", color = "info" },
+                HACK = { icon = " ", color = "warning" },
+                WARN = { icon = " ", color = "warning", alt = { "WARNING", "XXX" } },
                 PERF = { icon = "󰅒 ", alt = { "OPTIM", "PERFORMANCE", "OPTIMIZE" } },
-                NOTE = { icon = "󰍨 ", color = "hint", alt = { "INFO" } },
+                NOTE = { icon = " ", color = "hint", alt = { "INFO" } },
             },
         }
     },
@@ -155,28 +165,28 @@ return {
             dashboard = {
                 preset = {
                     keys = {
-                        { key = "n", icon = "󰈙", desc = "New file", action = ":enew" },
-                        { key = "f", icon = "󰈞", desc = "Find file", action = ":Telescope find_files" },
-                        { key = "r", icon = "󰥔", desc = "Recent files", action = ":Telescope oldfiles" },
-                        { key = "d", icon = "", desc = "Browse files", action = ":Telescope file_browser" },
-                        { key = "p", icon = "", desc = "Open project", action = ":Telescope projects" },
+                        { key = "n", icon = " ", desc = "New file", action = ":enew" },
+                        { key = "f", icon = " ", desc = "Find file", action = ":Telescope find_files" },
+                        { key = "r", icon = "󱋢 ", desc = "Recent files", action = ":Telescope oldfiles" },
+                        { key = "d", icon = " ", desc = "Browse files", action = ":Telescope file_browser" },
+                        { key = "p", icon = " ", desc = "Open project", action = ":Telescope projects" },
                         {
                             key = "z",
-                            icon = "󰉒",
-                            desc = "Change directory",
+                            icon = " ",
+                            desc = "Jump to directory",
                             action = function()
                                 require("telescope").extensions.zoxide.list()
                             end
                         },
                         {
                             key = "l",
-                            icon = "󰁯",
+                            icon = " ",
                             desc = "Load last session",
                             action = function()
                                 require("persistence").load { last = true }
                             end
                         },
-                        { key = "q", icon = "󰅗", desc = "Quit", action = ":qa!" },
+                        { key = "q", icon = " ", desc = "Quit", action = ":qa!" },
                     },
                 },
                 formats = {
@@ -204,7 +214,7 @@ return {
             notifier = {
                 style = "minimal",
                 icons = {
-                    error = " ",
+                    error = " ",
                     warn = " ",
                     info = "󰋽 ",
                     debug = " ",

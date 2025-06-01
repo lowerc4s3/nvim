@@ -77,18 +77,18 @@ return {
                     Function = { icon = "", hl = "@function" },
                     Variable = { icon = "", hl = "@constant" },
                     Constant = { icon = "", hl = "@constant" },
-                    String = { icon = "", hl = "@string" },
-                    Number = { icon = "󰎠", hl = "@number" },
+                    String = { icon = "", hl = "@string" },
+                    Number = { icon = "", hl = "@number" },
                     Boolean = { icon = "", hl = "@boolean" },
                     Array = { icon = "", hl = "@constant" },
                     Object = { icon = "⦿", hl = "@type" },
-                    Key = { icon = "󰌆", hl = "@type" },
-                    Null = { icon = "", hl = "@type" },
+                    Key = { icon = "", hl = "@type" },
+                    Null = { icon = "", hl = "@type" },
                     EnumMember = { icon = "", hl = "@field" },
                     Struct = { icon = "", hl = "@type" },
                     Event = { icon = "", hl = "@type" },
                     Operator = { icon = "", hl = "@operator" },
-                    TypeParameter = { icon = "𝙏", hl = "@parameter" },
+                    TypeParameter = { icon = "", hl = "@parameter" },
                     Component = { icon = "󰅴", hl = "@function" },
                     Fragment = { icon = "󰅴", hl = "@constant" },
                 }
@@ -115,6 +115,7 @@ return {
         opts = {
             library = {
                 { path = "${3rd}/luv/library", words = { "vim%.uv" } },
+                { path = "snacks.nvim",        words = { "Snacks" } },
             },
         },
     }

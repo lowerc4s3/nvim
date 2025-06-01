@@ -47,14 +47,14 @@ return {
             dap.configurations.c = dap.configurations.cpp
 
             vim.fn.sign_define('DapBreakpoint', {
-                text = '',
+                text = '',
                 texthl = 'DiagnosticSignError',
                 linehl = '',
                 numhl =
                 'DiagnosticSignError'
             })
-            vim.fn.sign_define('DapStopped', { text = '󰁔', texthl = '', linehl = 'CursorLine', numhl = '' })
-            vim.fn.sign_define('DapBreakpointCondition', { text = '󰁔', texthl = '', linehl = 'CursorLine', numhl = '' })
+            vim.fn.sign_define('DapStopped', { text = '', texthl = '', linehl = 'CursorLine', numhl = '' })
+            vim.fn.sign_define('DapBreakpointCondition', { text = '', texthl = '', linehl = 'CursorLine', numhl = '' })
 
             dap.defaults.fallback.focus_terminal = true
 

@@ -61,6 +61,9 @@ return {
                     BlinkCmpKindTypeParameter = { fg = colors.base, bg = colors.blue },
                     BlinkCmpKindCopilot = { fg = colors.base, bg = colors.teal },
 
+                    Cursor = { bg = colors.lavender },
+                    CursorIM = { bg = colors.lavender },
+
                     ModeMsg = { fg = colors.green },
                     TreesitterContextBottom = { style = {} } -- Disable ugly ahh underline
                 }

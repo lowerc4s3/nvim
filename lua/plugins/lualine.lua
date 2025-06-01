@@ -27,7 +27,7 @@ return {
 
         local diff = {
             'diff',
-            symbols = { added = ' ', modified = ' ', removed = ' ' },
+            symbols = { added = ' ', modified = ' ', removed = ' ' },
             padding = { left = 0, right = 1 }
         }
 
@@ -39,17 +39,16 @@ return {
 
         local filename = {
             'filename',
-            -- padding = 1,
             padding = { left = 0, right = 1 },
             path = 1,
-            symbols = { modified = '󰆓', readonly = '󰌾', unnamed = '' },
+            symbols = { modified = '', readonly = '', unnamed = '' },
             fmt = function(str) return str:gsub("/", "  ") end
         }
 
         local diagnostics = {
             'diagnostics',
             update_in_insert = false,
-            symbols = { error = " ", warn = " ", hint = "󰌶 ", info = "󰋽 " },
+            symbols = { error = " ", warn = " ", hint = " ", info = "󰋽 " },
         }
 
         local encoding = {
@@ -88,19 +87,12 @@ return {
             color = "NoiceVirtualText"
         }
 
-        local filename_inactive = {
-            'filename',
-            padding = 1,
-            path = 0,
-            symbols = { modified = '󰆓', readonly = '󰌾', unnamed = '' }
-        }
-
         return {
             options = {
                 icons_enabled = true,
                 theme = 'auto',
                 component_separators = { left = '', right = '' },
-                section_separators = { left = '', right = '' }, -- 
+                section_separators = { left = '', right = '' },
                 disabled_filetypes = {},
                 always_divide_middle = true,
                 globalstatus = true,
@@ -115,16 +107,8 @@ return {
                 lualine_z = { progress, 'location' }
             },
 
-            inactive_sections = {
-                lualine_a = {},
-                lualine_b = {},
-                lualine_c = { filename_inactive },
-                lualine_x = { 'location' },
-                lualine_y = {},
-                lualine_z = {}
-            },
             tabline = {},
-            extensions = { 'nvim-dap-ui', 'toggleterm', 'nvim-tree', 'trouble', }
+            extensions = { 'nvim-dap-ui', 'toggleterm', 'nvim-tree', 'trouble' }
         }
     end
 }

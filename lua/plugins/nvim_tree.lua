@@ -25,28 +25,28 @@ return {
                 enable = true,
             },
             icons = {
-                symlink_arrow = ' 󰁔 ',
+                symlink_arrow = '  ',
                 show = {
-                    git = false,
+                    git = true,
                 },
                 glyphs = {
-                    bookmark = '󰃀',
+                    bookmark = '',
                     folder = {
-                        default      = '󰉋',
-                        open         = '󰉋',
-                        empty        = '󰉖',
-                        empty_open   = '󰉖',
-                        symlink      = '󰉒',
-                        symlink_open = '󰉒',
+                        default      = '',
+                        open         = '',
+                        empty        = '',
+                        empty_open   = '',
+                        symlink      = '',
+                        symlink_open = '',
                     },
                     git = {
-                        unstaged  = '',
-                        staged    = '',
-                        unmerged  = '󰘬',
-                        renamed   = '',
-                        untracked = '󰞋',
-                        deleted   = '',
-                        ignored   = '',
+                        unstaged  = '',
+                        staged    = '',
+                        unmerged  = '',
+                        renamed   = '',
+                        untracked = '',
+                        deleted   = '',
+                        ignored   = '',
                     },
                 },
             },
@@ -69,7 +69,7 @@ return {
             cmd = "trash -rf",
         },
         live_filter = {
-            prefix = "[󰈶]",
+            prefix = "[󰈳]",
         }
     }
 }
