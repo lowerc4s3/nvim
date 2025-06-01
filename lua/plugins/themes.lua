@@ -62,6 +62,7 @@ return {
                     BlinkCmpKindCopilot = { fg = colors.base, bg = colors.teal },
 
                     ModeMsg = { fg = colors.green },
+                    TreesitterContextBottom = { style = {} } -- Disable ugly ahh underline
                 }
             end,
         },
