@@ -67,13 +67,37 @@ return {
                         { "{data.progress.client} ", hl_group = "NoiceLspProgressClient" },
                     }
                 },
-                signature = {
-                    enabled = false,
-                },
-                hover = {
-                    enabled = false,
-                },
+                signature = { enabled = false },
+                hover = { enabled = false },
             },
+            views = {
+                popup = { border = { style = "none" } }
+            },
+            routes = {
+                {
+                    -- Pass delete and yank messages to mini view
+                    filter = {
+                        event = "msg_show",
+                        any = {
+                            { find = "%d fewer lines" },
+                            { find = "%d more lines" },
+                            { find = "%d lines <ed %d time[s]?" },
+                            { find = "%d lines >ed %d time[s]?" },
+                            { find = "%d lines yanked" },
+                        }
+                    },
+                    view = "mini",
+                },
+                {
+                    -- Disable lsp_signature.nvim error messages
+                    -- which appear when rust-analyzer is loading
+                    filter = {
+                        event = "msg_show",
+                        find = "lsp_signatur handler RPC"
+                    },
+                    opts = { skip = true }
+                }
+            }
         }
     },
 
