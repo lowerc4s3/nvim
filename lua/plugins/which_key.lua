@@ -76,10 +76,8 @@ return {
             { "<leader>cd", "<cmd>Trouble diagnostics toggle filter.buf=0<cr>", icon = "", desc = "Diagnostics" },
             { "<leader>cf", function() vim.lsp.buf.format { async = true } end, icon = "󰅩", desc = "Format" },
             { "<leader>cr", "<cmd>Telescope lsp_references<CR>", icon = "󰏌", desc = "References" },
-            -- { "<leader>ca", require("tiny-code-action").code_action, icon = "", desc = "Actions" },
-            -- { "<leader>co", "<cmd>SymbolsOutline<CR>", icon = "󰙅", desc = "Symbols outline" },
             { "<leader>co", "<cmd>Outline<CR>", icon = "󰙅", desc = "Symbols outline" },
-            { "<leader>cc", "<cmd>ColorizerToggle<cr>", icon = "", desc = "Toggle colorizer" },
+            { "<leader>cc", "<cmd>ColorizerToggle<cr>", icon = "", desc = "Toggle colorizer" },
             { "<leader>ct", "<cmd>TodoTrouble<CR>", icon = "󰄲", desc = "Todos" },
 
             { "<leader>C", group = "CMake", icon = "󰒓" },
@@ -107,9 +105,12 @@ return {
             { "<leader>wc", "<C-w>c", icon = "󰖭", desc = "Close" },
             { "<leader>wb", "<C-w>=", icon = "󰇼", desc = "Balance" },
 
-            { "<leader>m", group = "Markdown", icon = "" },
-            { "<leader>mp", "<cmd>Glow<CR>", icon = "󰂽", desc = "Preview" },
-            { "<leader>mP", "<cmd>MarkdownPreviewToggle<CR>", icon = "󰂽", desc = "Browser preview" },
+            { "<leader>n", group = "Notifications", icon = "" },
+            { "<leader>nn", "<cmd>Noice history<cr>", icon = "", desc = "Show" },
+            { "<leader>na", "<cmd>Noice all<cr>", icon = "", desc = "Show all" },
+            { "<leader>nl", "<cmd>Noice last<cr>", icon = "󱞿", desc = "Show last" },
+            { "<leader>ne", "<cmd>Noice errors<cr>", icon = "", desc = "Show errors" },
+            { "<leader>nd", "<cmd>Noice dismiss<cr>", icon = "󰱞", desc = "Dismiss visible" },
         }
     }
 }
