@@ -36,8 +36,8 @@ return {
             silent = true,
             { "<leader>s", "<cmd>write<CR>", icon = "󰆓", desc = "Save" },
             { "<leader>S", "<cmd>wall<CR>", icon = "󰆔", desc = "Save all" },
-            { "<leader>x", "<cmd>Bdelete<CR>", icon = "󰅘", desc = "Close buffer" },
-            { "<leader>X", "<cmd>Bdelete!<CR>", icon = "󰅗", desc = "Force close buffer" },
+            { "<leader>x", "<cmd>bdelete<CR>", icon = "󰅘", desc = "Close buffer" },
+            { "<leader>X", "<cmd>bdelete!<CR>", icon = "󰅗", desc = "Force close buffer" },
             { "<leader>q", "<cmd>qa<CR>", icon = "󰗼", desc = "Quit" },
             { "<leader>Q", "<cmd>qa!<CR>", icon = "󰗼", desc = "Force quit" },
             { "<leader>/", "<cmd>NvimTreeFocus<cr>", icon = "󰙅", desc = "Open file tree" },
@@ -47,8 +47,8 @@ return {
 
             { "<leader>b", group = "Buffers", icon = "" },
             { "<leader>bf", "<cmd>Telescope buffers<CR>", icon = "󰍉", desc = "Buffers" },
-            { "<leader>bx", "<cmd>%Bdelete<cr>", icon = "󰱞", desc = "Close all" },
-            { "<leader>bx", "<cmd>%Bdelete!<cr>", icon = "󰱝", desc = "Force close all" },
+            { "<leader>bx", "<cmd>%bdelete<cr>", icon = "󰱞", desc = "Close all" },
+            { "<leader>bx", "<cmd>%bdelete!<cr>", icon = "󰱝", desc = "Force close all" },
 
             { "<leader>f", group = "Find", icon = "󰍉" },
             { "<leader>ff", "<cmd>Telescope find_files<CR>", icon = "", desc = "Find project files" },

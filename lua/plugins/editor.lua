@@ -117,12 +117,14 @@ return {
     {
         -- Repeat more commands with dot
         'tpope/vim-repeat',
+        enabled = false,
         event = 'VeryLazy'
     },
 
     {
         -- Remove buffers without closing windows
         'famiu/bufdelete.nvim',
+        enabled = false,
         cmd = 'Bdelete',
     },
 }
