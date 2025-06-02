@@ -78,17 +78,6 @@ return {
             { "<leader>cc", "<cmd>ColorizerToggle<cr>", icon = "", desc = "Toggle colorizer" },
             { "<leader>ct", "<cmd>TodoTrouble<CR>", icon = "", desc = "Todos" },
 
-            -- TODO: Load these keymaps with cmake-tools (wk.add)
-            { "<leader>C", group = "CMake", icon = "" },
-            { "<leader>Cb", "<cmd>CMakeBuild<CR>", icon = "", desc = "Build project" },
-            { "<leader>Cr", "<cmd>CMakeRun<CR>", icon = "", desc = "Run project" },
-            { "<leader>Cd", "<cmd>CMakeDebug<CR>", icon = "", desc = "Start debugging" },
-            { "<leader>Cc", "<cmd>CMakeClean<CR>", icon = "󰃢", desc = "Clean" },
-            { "<leader>Cs", group = "Select", icon = "" },
-            { "<leader>Csb", "<cmd>CMakeSelectBuildType<CR>", icon = "", desc = "Build type" },
-            { "<leader>Cst", "<cmd>CMakeSelectLaunchTarget<CR>", icon = "", desc = "Launch target" },
-            { "<leader>Csp", "<cmd>CMakeSelectBuildPreset<CR>", icon = "", desc = "Build preset" },
-
             { "<leader>p", group = "Packages", icon = "" },
             { "<leader>pc", "<cmd>Lazy check<CR>", icon = "", desc = "Check updates" },
             { "<leader>pC", "<cmd>Lazy clean<CR>", icon = "󰃢", desc = "Clean" },

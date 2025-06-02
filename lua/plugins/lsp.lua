@@ -30,6 +30,8 @@ return {
         event = "VeryLazy",
         opts = {
             preset = "simple",
+            signs = { diag = "•" },
+            blend = { factor = 0.11 },
             options = {
                 multilines = {
                     enabled = true

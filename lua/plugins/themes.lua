@@ -14,7 +14,6 @@ return {
         opts = {
             flavour = 'mocha',
             integrations = {
-                notify = true,
                 which_key = true,
                 telescope = false,
                 lsp_trouble = true,
