@@ -19,6 +19,13 @@ return {
                 README          = { glyph = '󰭤' },
                 ['README.md']   = { glyph = '󰭤' },
                 ['README.txt']  = { glyph = '󰭤' },
+            },
+            filetype = {
+                hjson   = { glyph = '' },
+                json    = { glyph = '' },
+                json5   = { glyph = '' },
+                jsonc   = { glyph = '' },
+                jsonl   = { glyph = '' },
             }
         }
     },
@@ -195,6 +202,8 @@ return {
                     icon = { "%s", hl = "Comment" }
                 },
                 sections = {
+                    -- BUG: Terminal section will show output with huge lag
+                    -- so it's disabled now (tracked by https://github.com/folke/snacks.nvim/issues/1769)
                     -- {
                     --     section = "terminal",
                     --     cmd = "chafa ~/.config/nvim/assets/splash.jpeg -f symbols --symbols vhalf -s 37x12 --stretch; sleep .1",

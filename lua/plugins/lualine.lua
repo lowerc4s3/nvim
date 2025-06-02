@@ -51,20 +51,24 @@ return {
             'filename',
             padding = 0,
             path = 0,
+            symbols = {
+                unnamed = '',
+                newfile = ''
+            },
             file_status = false,
         }
 
         local filestatus = {
             function()
                 if vim.bo.modified then
-                    return ""
+                    return "●"
                 elseif not vim.bo.modifiable or vim.bo.readonly then
                     return ""
                 end
                 return ""
             end,
             padding = 1,
-            color = 'MiniIconsOrange'
+            color = 'MiniIconsGreen'
         }
 
         local diagnostics = {

@@ -27,7 +27,7 @@ return {
             icons = {
                 symlink_arrow = '  ',
                 show = {
-                    git = true,
+                    git = false,
                 },
                 glyphs = {
                     bookmark = '',
