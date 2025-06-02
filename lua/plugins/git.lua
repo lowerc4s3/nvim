@@ -2,7 +2,7 @@ return {
     {
         -- Git integration
         'lewis6991/gitsigns.nvim',
-        event = { 'BufReadPre', 'BufNewFile' },
+        event = "VeryLazy",
         dependencies = 'nvim-lua/plenary.nvim',
         opts = {}
     },

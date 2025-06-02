@@ -1,4 +1,6 @@
 local map = vim.keymap.set
+local autocmd = vim.api.nvim_create_autocmd
+local augroup = vim.api.nvim_create_augroup
 
 vim.api.nvim_create_autocmd('LspAttach', {
     group = vim.api.nvim_create_augroup('kickstart-lsp-attach', { clear = true }),
@@ -14,21 +16,21 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
         -- Enable word references highlighting if possible
         if client and client:supports_method(vim.lsp.protocol.Methods.textDocument_documentHighlight, event.buf) then
-            local highlight_augroup = vim.api.nvim_create_augroup('word-lsp-highlight', { clear = false })
-            vim.api.nvim_create_autocmd({ 'CursorHold', 'CursorHoldI' }, {
+            local highlight_augroup = augroup('word-lsp-highlight', { clear = false })
+            autocmd({ 'CursorHold', 'CursorHoldI' }, {
                 buffer = event.buf,
                 group = highlight_augroup,
                 callback = vim.lsp.buf.document_highlight,
             })
 
-            vim.api.nvim_create_autocmd({ 'CursorMoved', 'CursorMovedI' }, {
+            autocmd({ 'CursorMoved', 'CursorMovedI' }, {
                 buffer = event.buf,
                 group = highlight_augroup,
                 callback = vim.lsp.buf.clear_references,
             })
 
-            vim.api.nvim_create_autocmd('LspDetach', {
-                group = vim.api.nvim_create_augroup('word-lsp-detach', { clear = true }),
+            autocmd('LspDetach', {
+                group = augroup('word-lsp-detach', { clear = true }),
                 callback = function(event2)
                     vim.lsp.buf.clear_references()
                     vim.api.nvim_clear_autocmds { group = 'word-lsp-highlight', buffer = event2.buf }

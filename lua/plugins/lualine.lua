@@ -2,8 +2,6 @@ return {
     -- Status line
     'nvim-lualine/lualine.nvim',
     opts = function()
-        -- Elements customization
-
         local mode = {
             'mode',
             fmt = function(str) return str:sub(1, 3) end
