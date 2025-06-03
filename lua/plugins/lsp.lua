@@ -27,7 +27,6 @@ return {
     {
         -- Improved virtual text diagnostic messages
         "rachartier/tiny-inline-diagnostic.nvim",
-        event = "VeryLazy",
         opts = {
             preset = "simple",
             signs = { diag = "•" },
@@ -36,7 +35,6 @@ return {
                 multilines = {
                     enabled = true
                 },
-                overwrite_events = { "BufEnter", "LspAttach" },
             }
         }
     },
