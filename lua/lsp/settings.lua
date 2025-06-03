@@ -14,6 +14,9 @@ vim.api.nvim_create_autocmd('LspAttach', {
             vim.lsp.inlay_hint.enable(true)
         end
 
+        -- Format on save using lsp-format
+        require("lsp-format").on_attach(client, event.buf)
+
         -- Enable word references highlighting if possible
         if client and client:supports_method(vim.lsp.protocol.Methods.textDocument_documentHighlight, event.buf) then
             local highlight_augroup = augroup('word-lsp-highlight', { clear = false })
