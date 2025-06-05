@@ -36,7 +36,7 @@ return {
             end,
             padding = { left = 1, right = 0 },
             fmt = function(str) return str:gsub("/", "  "):gsub("%s+$", "") end,
-            color = 'Comment'
+            color = 'NonText'
         }
 
         local filetype = {

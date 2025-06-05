@@ -1,4 +1,5 @@
 return {
+    -- Open terminal in split window
     'akinsho/toggleterm.nvim',
     cmd = { 'ToggleTerm', 'ToggleTermToggleAll' },
     opts = {

@@ -2,26 +2,8 @@ return {
     -- Completion engine
     "saghen/blink.cmp",
     dependencies = {
-        -- "rafamadriz/friendly-snippets",     -- Snippets collection
         "xzbdmw/colorful-menu.nvim", -- Better completion item descriptions
-        {
-            -- Advanced snippet engine
-            "L3MON4D3/LuaSnip",
-            version = "v2.*",
-            config = function()
-                require("luasnip.loaders.from_vscode").lazy_load {
-                    paths = { vim.fn.stdpath("config") .. '/snippets/vscode' }
-                }
-                require("luasnip.loaders.from_lua").lazy_load {
-                    paths = { vim.fn.stdpath("config") .. '/snippets/luasnip' }
-                }
-                vim.keymap.set({ "i", "s" }, "<C-I>", function()
-                    if require("luasnip").choice_active() then
-                        require("luasnip").change_choice(1)
-                    end
-                end, { silent = true })
-            end
-        }
+        "L3MON4D3/LuaSnip",
     },
     version = "1.*",
     event = { 'InsertEnter', 'CmdLineEnter' },
@@ -164,7 +146,7 @@ return {
         cmdline = {
             keymap = {
                 preset = "inherit",
-                ["<CR>"] = { "select_accept_and_enter", "fallback" }
+                ["<CR>"] = { "accept_and_enter", "fallback" }
             },
             completion = {
                 menu = {

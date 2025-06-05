@@ -99,6 +99,16 @@ return {
             { "<leader>nl", "<cmd>Noice last<cr>", icon = "󱞿", desc = "Show last" },
             { "<leader>ne", "<cmd>Noice errors<cr>", icon = "", desc = "Show errors" },
             { "<leader>nd", "<cmd>Noice dismiss<cr>", icon = "󰱞", desc = "Dismiss visible" },
+            {
+                -- Yup, that's stupid
+                "<leader>nf",
+                function()
+                    vim.cmd("Noice disable")
+                    vim.cmd("Noice enable")
+                end,
+                icon = "",
+                desc = "Fix broken cmdline"
+            },
         }
     }
 }
