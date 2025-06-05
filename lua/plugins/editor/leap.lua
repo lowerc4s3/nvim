@@ -3,6 +3,7 @@ return {
     "ggandor/leap.nvim",
     dependencies = "tpope/vim-repeat",
     config = function()
-        require("leap").add_default_mappings()
+        vim.keymap.set({ "n", "x", "o" }, "m", "<Plug>(leap)")
+        vim.keymap.set("n", "M", "<Plug>(leap-from-window)")
     end
 }
