@@ -25,7 +25,9 @@ return {
             json5           = { glyph = '' },
             jsonc           = { glyph = '' },
             jsonl           = { glyph = '' },
-            TelescopePrompt = { glyph = '' },
+            telescopeprompt = { glyph = '' },
+            overseerform    = { glyph = '' },
+            overseerlist    = { glyph = '' },
         }
     }
 }

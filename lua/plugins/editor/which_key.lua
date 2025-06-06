@@ -76,7 +76,10 @@ return {
             { "<leader>cr", "<cmd>Telescope lsp_references<CR>", icon = "", desc = "References" },
             { "<leader>co", "<cmd>Outline<CR>", icon = "", desc = "Symbols outline" },
             { "<leader>cc", "<cmd>ColorizerToggle<cr>", icon = "", desc = "Toggle colorizer" },
-            { "<leader>ct", "<cmd>TodoTrouble<CR>", icon = "", desc = "Todos" },
+            { "<leader>cT", "<cmd>TodoTrouble<CR>", icon = "", desc = "Todos" },
+            { "<leader>ct", group = "Tasks", icon = "" },
+            { "<leader>ctr", "<cmd>OverseerRun<cr>", icon = "", desc = "Run" },
+            { "<leader>cto", "<cmd>OverseerOpen<cr>", icon = "", desc = "Open output" },
 
             { "<leader>p", group = "Packages", icon = "" },
             { "<leader>pc", "<cmd>Lazy check<CR>", icon = "", desc = "Check updates" },
