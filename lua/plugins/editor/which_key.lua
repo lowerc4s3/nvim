@@ -1,6 +1,7 @@
 return {
     -- Mappings with mappings cheatsheet (not so nested anymore)
     'folke/which-key.nvim',
+    ---@class wk.Opts
     opts = {
         preset = "classic",
         plugins = {
@@ -14,6 +15,11 @@ return {
                 g = true,
             },
         },
+
+        -- Don't show translated mappings from langmapper
+        filter = function(mapping)
+            return mapping.desc and mapping.desc:find("wkignore", 1, true) ~= 1
+        end,
 
         icons = {
             breadcrumb = "",
