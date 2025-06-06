@@ -11,6 +11,7 @@ return {
             telescope = false,
             lsp_trouble = true,
             symbols_outline = true,
+            nvim_surround = true,
             dap = true,
             dap_ui = true,
             native_lsp = {
