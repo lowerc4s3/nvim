@@ -132,7 +132,7 @@ return {
             },
 
             tabline = {},
-            extensions = { 'nvim-dap-ui', 'toggleterm', 'nvim-tree', 'trouble' }
+            extensions = { 'nvim-dap-ui', 'toggleterm', 'trouble' }
         }
     end
 }

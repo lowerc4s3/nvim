@@ -44,7 +44,7 @@ return {
             { "<leader>X", function() Snacks.bufdelete { force = true } end, icon = "󰅗", desc = "Force close buffer" },
             { "<leader>q", "<cmd>qa<CR>", icon = "", desc = "Quit" },
             { "<leader>Q", "<cmd>qa!<CR>", icon = "", desc = "Force quit" },
-            { "<leader>/", "<cmd>NvimTreeFocus<cr>", icon = "", desc = "Open file tree" },
+            { "<leader>/", function() MiniFiles.open() end, icon = "", desc = "Open file tree" },
             { "<leader>.", "<cmd>Telescope file_browser<CR>", icon = "", desc = "Browse files" },
             { "<leader>z", function() require("telescope").extensions.zoxide.list() end, icon = "", desc = "Jump to directory" },
             { "<leader><leader>", "<cmd>Telescope find_files<CR>", icon = "", desc = "Find files" },
