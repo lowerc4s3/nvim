@@ -6,17 +6,16 @@ return {
     opts = {
         move_cursor = "sticky",
         keymaps = {
-            insert = "<C-g>s",
-            insert_line = "<C-g>S",
-            normal = "gs",
-            normal_cur = "gss",
-            normal_line = "gS",
-            normal_cur_line = "gSS",
-            visual = "gs",
-            visual_line = "gS",
-            delete = "gsd",
-            change = "gsr",
-            change_line = "gsR",
+            insert          = '<C-g>z',
+            insert_line     = '<C-g>j',
+            normal          = 'gz',
+            normal_cur      = 'gzz',
+            normal_line     = 'gZ',
+            normal_cur_line = 'gZZ',
+            visual          = 'gz',
+            visual_line     = 'gZ',
+            delete          = 'gzd',
+            change          = 'gzr',
         }
     }
 }
