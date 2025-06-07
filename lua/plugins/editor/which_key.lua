@@ -36,6 +36,8 @@ return {
         show_keys = false,
         show_help = false,
 
+        win = { no_overlap = false },
+
         spec = {
             silent = true,
             { "<leader>s", "<cmd>write<CR>", icon = "", desc = "Save" },
@@ -44,10 +46,7 @@ return {
             { "<leader>X", function() Snacks.bufdelete { force = true } end, icon = "󰅗", desc = "Force close buffer" },
             { "<leader>q", "<cmd>qa<CR>", icon = "", desc = "Quit" },
             { "<leader>Q", "<cmd>qa!<CR>", icon = "", desc = "Force quit" },
-            -- TODO: Remove telescope file browser
-            { "<leader>/", function() MiniFiles.open() end, icon = "", desc = "Open file tree" },
-            { "<leader>.", "<cmd>Telescope file_browser<CR>", icon = "", desc = "Browse files" },
-            { "<leader>z", function() require("telescope").extensions.zoxide.list() end, icon = "", desc = "Jump to directory" },
+            { "<leader>.", function() MiniFiles.open() end, icon = "", desc = "Browse files" },
             { "<leader><leader>", "<cmd>Telescope find_files<CR>", icon = "", desc = "Find files" },
 
             { "<leader>b", group = "Buffers", icon = "" },
@@ -61,7 +60,6 @@ return {
             { "<leader>fb", "<cmd>Telescope buffers<CR>", icon = "", desc = "Buffers" },
             { "<leader>fp", "<cmd>Telescope projects<CR>", icon = "", desc = "Projects" },
             { "<leader>fw", "<cmd>Telescope live_grep<CR>", icon = "󰦨", desc = "Text" },
-            { "<leader>fd", "<cmd>Telescope file_browser<CR>", icon = "", desc = "File browser" },
             { "<leader>ft", "<cmd>TodoTelescope<CR>", icon = "", desc = "Todos" },
 
             { "<leader>g", group = "Git", icon = "󰊢" },
