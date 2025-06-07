@@ -26,15 +26,10 @@ if vim.g.neovide and vim.fn.has('macunix') then
     end, { silent = true })
 end
 
--- Paste in insert mode keybind (temp solution)
-vim.keymap.set({ "i", "c" }, "<D-v>", "<ESC>pi")
-
--- vim.keymap.set({ "i", "c" }, "<D-v>", function()
---     vim.cmd.set("noautoindent")
---     vim.print("paste enabled")
---     local key = vim.api.nvim_replace_termcodes("<C-R>", true, true, true) .. "+"
---     vim.api.nvim_feedkeys(key, "n", false)
---     vim.cmd.set("autoindent")
--- end)
--- -- vim.keymap.set('c', '<D-v>', '<C-R>+') -- Paste command
--- -- vim.keymap.set('i', '<D-v>', '<ESC>lPli') -- Paste insert mode
+-- Paste in insert mode keymap
+vim.keymap.set(
+    { 'n', 'v', 's', 'x', 'o', 'i', 'l', 'c', 't' },
+    '<D-v>',
+    function() vim.api.nvim_paste(vim.fn.getreg('+'), true, -1) end,
+    { noremap = true, silent = true }
+)
