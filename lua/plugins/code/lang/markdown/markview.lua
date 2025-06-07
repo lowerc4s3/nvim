@@ -6,9 +6,7 @@ return {
     opts = {
         preview = {
             filetypes = { "markdown", "md", "rmd", "quarto", "tex", "typst" },
-            modes = { "n", "no", "c", "i" },
-            hybrid_modes = { "i", "n" },
-            linewise_hybrid_mode = false
+            modes = { "n", "no", "c" },
         },
         markdown = {
             enable = true,
