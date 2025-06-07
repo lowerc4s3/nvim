@@ -64,6 +64,7 @@ return {
             { "<leader>ft", "<cmd>TodoTelescope<CR>", icon = "", desc = "Todos" },
 
             { "<leader>g", group = "Git", icon = "󰊢" },
+            { "<leader>gg", "<cmd>Neogit<CR>", icon = "󰊢", desc = "Open Neogit" },
             { "<leader>gd", "<cmd>DiffviewOpen<CR>", icon = "", desc = "Open Diff" },
             { "<leader>gc", "<cmd>DiffviewClose<CR>", icon = "", desc = "Close Diff" },
 
