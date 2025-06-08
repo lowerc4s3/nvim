@@ -52,33 +52,6 @@ return {
         },
         appearance = {
             nerd_font_variant = "normal",
-            kind_icons = {
-                Text          = "",
-                Method        = "",
-                Function      = "",
-                Constructor   = "",
-                Field         = "",
-                Variable      = "",
-                Class         = "",
-                Interface     = "",
-                Module        = "",
-                Property      = "",
-                Unit          = "",
-                Value         = "",
-                Enum          = "",
-                Keyword       = "",
-                Snippet       = "",
-                Color         = "",
-                File          = "",
-                Reference     = "",
-                Folder        = "",
-                EnumMember    = "",
-                Constant      = "",
-                Struct        = "",
-                Event         = "",
-                Operator      = "",
-                TypeParameter = "",
-            }
         },
         completion = {
             documentation = {
@@ -114,7 +87,7 @@ return {
                         },
                         kind_icon = {
                             text = function(ctx)
-                                return " " .. ctx.kind_icon .. ctx.icon_gap
+                                return " " .. require("mini.icons").get("lsp", ctx.kind) .. ctx.icon_gap
                             end
                         }
                     }
