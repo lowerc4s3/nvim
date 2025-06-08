@@ -10,7 +10,11 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
         -- Enable inlay hints if possible
         local client = vim.lsp.get_client_by_id(event.data.client_id)
-        if client and client:supports_method(vim.lsp.protocol.Methods.textDocument_inlayHint, event.buf) then
+        if not client then
+            return
+        end
+
+        if client:supports_method(vim.lsp.protocol.Methods.textDocument_inlayHint, event.buf) then
             vim.lsp.inlay_hint.enable(true)
         end
 
@@ -18,7 +22,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
         require("lsp-format").on_attach(client, event.buf)
 
         -- Enable word references highlighting if possible
-        if client and client:supports_method(vim.lsp.protocol.Methods.textDocument_documentHighlight, event.buf) then
+        if client:supports_method(vim.lsp.protocol.Methods.textDocument_documentHighlight, event.buf) then
             local highlight_augroup = augroup('word-lsp-highlight', { clear = false })
             autocmd({ 'CursorHold', 'CursorHoldI' }, {
                 buffer = event.buf,
