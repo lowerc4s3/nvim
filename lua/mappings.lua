@@ -27,6 +27,11 @@ map("i", "<C-j>", "<Down>", opts)
 map("i", "<C-k>", "<Up>", opts)
 map("i", "<C-l>", "<Right>", opts)
 
+-- Navigate open buffers
+map("n", "L", "<cmd>bnext<cr>", opts)
+map("n", "H", "<cmd>bprev<cr>", opts)
+map("n", "<Tab>", "<cmd>Telescope buffers<cr>", opts)
+
 -- Disable search highlight in insert and leave insert mode in terminal
 -- map("t", "<ESC>", "<C-\\><C-N>", opts)
 map("n", "<ESC>", ":noh<CR>", opts)
@@ -35,10 +40,6 @@ map("n", "<ESC>", ":noh<CR>", opts)
 map("n", "<C-\\>", "<cmd>ToggleTerm<CR>", opts)
 map("i", "<C-\\>", "<cmd>ToggleTerm<CR>", opts)
 map("t", "<C-\\>", "<cmd>ToggleTerm<CR>", opts)
-
--- Switch buffers
-map("n", "<TAB>", "<cmd>BufferLineCycleNext<CR>", opts)
-map("n", "<S-TAB>", "<cmd>BufferLineCyclePrev<CR>", opts)
 
 -- Instant macros
 map("n", "@", '<cmd>execute "noautocmd norm!" . v:count1 . "@" . getcharstr()<CR>', opts)
