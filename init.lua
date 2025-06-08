@@ -35,7 +35,7 @@ end
 
 -- Load configs
 require('config')
-require('mappings')
+require('keymaps')
 require('lazypm')
 require('lsp')
 require('after')
