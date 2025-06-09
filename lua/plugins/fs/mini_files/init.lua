@@ -1,6 +1,6 @@
 return {
     -- File manager
-    "echasnovski/mini.files",
+    'echasnovski/mini.files',
     opts = {
         mappings = {
             go_in = 'L',
@@ -10,25 +10,31 @@ return {
         ---@type mini.files.ext.Config
         ext = {
             mappings = {
-                open = "gx",
-                copy_path = "gy",
-            }
+                open = 'gx',
+                copy_path = 'gy',
+            },
         },
         windows = {
             preview = true,
             width_preview = 50,
-        }
+        },
     },
     config = function(_, opts)
-        require("mini.files").setup(opts)
-        require("plugins.fs.mini_files.ext").setup(opts.ext)
-        vim.api.nvim_create_autocmd("User", {
-            pattern = "MiniFilesBufferCreate",
+        require('mini.files').setup(opts)
+        require('plugins.fs.mini_files.ext').setup(opts.ext)
+        vim.api.nvim_create_autocmd('User', {
+            pattern = 'MiniFilesBufferCreate',
             callback = function(event)
-                require("which-key").add {
-                    { "<leader>s", MiniFiles.synchronize, icon = "", desc = "Apply changes", buffer = event.data.buf_id }
+                require('which-key').add {
+                    {
+                        '<leader>s',
+                        MiniFiles.synchronize,
+                        icon = '',
+                        desc = 'Apply changes',
+                        buffer = event.data.buf_id,
+                    },
                 }
-            end
+            end,
         })
-    end
+    end,
 }

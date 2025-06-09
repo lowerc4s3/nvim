@@ -17,12 +17,12 @@ return {
             native_lsp = {
                 enabled = true,
                 underlines = {
-                    errors = { "undercurl" },
-                    hints = { "undercurl" },
-                    warnings = { "undercurl" },
-                    information = { "undercurl" },
+                    errors = { 'undercurl' },
+                    hints = { 'undercurl' },
+                    warnings = { 'undercurl' },
+                    information = { 'undercurl' },
                 },
-            }
+            },
         },
         custom_highlights = function(colors)
             return {
@@ -58,12 +58,12 @@ return {
                 CursorIM = { bg = colors.lavender },
 
                 ModeMsg = { fg = colors.green },
-                TreesitterContextBottom = { style = {} }     -- Disable ugly ahh underline
+                TreesitterContextBottom = { style = {} }, -- Disable ugly ahh underline
             }
         end,
     },
     config = function(_, opts)
-        require("catppuccin").setup(opts)
-        vim.cmd.colorscheme("catppuccin")
-    end
+        require('catppuccin').setup(opts)
+        vim.cmd.colorscheme('catppuccin')
+    end,
 }

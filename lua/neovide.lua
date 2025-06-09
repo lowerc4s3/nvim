@@ -21,8 +21,8 @@ vim.g.neovide_floating_shadow = false
 
 -- New instance keymap
 if vim.g.neovide and vim.fn.has('macunix') then
-    vim.keymap.set("n", "<D-n>", function()
-        vim.uv.spawn("neovide", { detached = true }, function() end)
+    vim.keymap.set('n', '<D-n>', function()
+        vim.uv.spawn('neovide', { detached = true }, function() end)
     end, { silent = true })
 end
 

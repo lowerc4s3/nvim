@@ -18,13 +18,13 @@ return {
         'DapToggleRepl',
     },
     opts = {
-        icons = { expanded = "󰅀", collapsed = "󰅂" },
+        icons = { expanded = '󰅀', collapsed = '󰅂' },
         mappings = {
-            expand = { "<CR>", "<2-LeftMouse>" },
-            open   = "o",
-            remove = "d",
-            edit   = "e",
-            repl   = "r",
+            expand = { '<CR>', '<2-LeftMouse>' },
+            open = 'o',
+            remove = 'd',
+            edit = 'e',
+            repl = 'r',
         },
         layouts = {
             {
@@ -49,11 +49,11 @@ return {
         floating = {
             max_height = nil,
             max_width = nil,
-            border = "single",
+            border = 'single',
             mappings = {
-                close = { "q", "<Esc>" },
+                close = { 'q', '<Esc>' },
             },
         },
         windows = { indent = 1 },
-    }
+    },
 }

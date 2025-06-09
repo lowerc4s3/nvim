@@ -5,8 +5,6 @@ return {
     priority = 1001,
     opts = {
         -- Set trivial description to filter from which-key
-        custom_desc = function()
-            return "wkignore"
-        end
-    }
+        custom_desc = function() return 'wkignore' end,
+    },
 }

@@ -19,74 +19,75 @@ local function map_opts(buf_id, desc)
     return {
         buffer = buf_id,
         silent = true,
-        desc = desc
+        desc = desc,
     }
 end
 
 local function copy_path()
     local entry = MiniFiles.get_fs_entry()
     if not entry then
-        vim.notify("No file or directory selected", vim.log.levels.WARN)
+        vim.notify('No file or directory selected', vim.log.levels.WARN)
         return
     end
 
-    vim.fn.setreg("+", entry.path)
+    vim.fn.setreg('+', entry.path)
 end
 
 local function open()
     local entry = MiniFiles.get_fs_entry()
     if not entry then
-        vim.notify("No file or directory selected", vim.log.levels.WARN)
+        vim.notify('No file or directory selected', vim.log.levels.WARN)
         return
     end
 
     local _, err = vim.ui.open(entry.path)
     if err then
-        vim.notify(string.format("Cannot open %s: %s", entry.path, err), vim.log.levels.ERROR)
+        vim.notify(string.format('Cannot open %s: %s', entry.path, err), vim.log.levels.ERROR)
     end
 end
 
 -- FIXME: Sometimes cannot set buffer name
 local function sync_on_write(buf)
     vim.schedule(function()
-        vim.bo.buftype = "acwrite"
+        vim.bo.buftype = 'acwrite'
         vim.api.nvim_buf_set_name(0, tostring(vim.api.nvim_get_current_win()))
         vim.api.nvim_create_autocmd('BufWriteCmd', {
             buffer = buf,
-            callback = function()
-                require('mini.files').synchronize()
-            end,
+            callback = function() require('mini.files').synchronize() end,
         })
     end)
 end
 
 local function hide_borders(win)
     local config = vim.api.nvim_win_get_config(win)
-    config.border = "solid"
+    config.border = 'solid'
     vim.api.nvim_win_set_config(win, config)
 end
 
 ---@param opts mini.files.ext.Config
 function M.setup(opts)
-    opts = vim.tbl_deep_extend("force", default_opts, opts)
-    vim.api.nvim_create_autocmd("User", {
-        pattern = "MiniFilesBufferCreate",
+    opts = vim.tbl_deep_extend('force', default_opts, opts)
+    vim.api.nvim_create_autocmd('User', {
+        pattern = 'MiniFilesBufferCreate',
         callback = function(event)
             local buf_id = event.data.buf_id
             if opts.mappings.open then
-                vim.keymap.set("n", opts.mappings.open, open, map_opts(buf_id, "System open"))
+                vim.keymap.set('n', opts.mappings.open, open, map_opts(buf_id, 'System open'))
             end
             if opts.mappings.copy_path then
-                vim.keymap.set("n", opts.mappings.copy_path, copy_path, map_opts(buf_id, "Copy absolute path"))
+                vim.keymap.set(
+                    'n',
+                    opts.mappings.copy_path,
+                    copy_path,
+                    map_opts(buf_id, 'Copy absolute path')
+                )
             end
             if opts.sync_on_write then sync_on_write(event) end
-        end
+        end,
     })
-    vim.api.nvim_create_autocmd("User", {
-        pattern = "MiniFilesWindowOpen",
-        callback = function(event)
-            hide_borders(event.data.win_id)
-        end
+    vim.api.nvim_create_autocmd('User', {
+        pattern = 'MiniFilesWindowOpen',
+        callback = function(event) hide_borders(event.data.win_id) end,
     })
 end
 

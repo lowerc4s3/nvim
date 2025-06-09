@@ -4,7 +4,7 @@ return {
     opts = function()
         local mode = {
             'mode',
-            fmt = function(str) return str:sub(1, 3) end
+            fmt = function(str) return str:sub(1, 3) end,
         }
 
         local searchcount = {
@@ -20,29 +20,33 @@ return {
 
         local branch = {
             'branch',
-            icon = ''
+            icon = '',
         }
 
         local diff = {
             'diff',
             symbols = { added = ' ', modified = ' ', removed = ' ' },
-            padding = { left = 0, right = 1 }
+            padding = { left = 0, right = 1 },
         }
 
         local basename = {
             function()
-                local path = vim.fn.expand("%:h")
-                if path == "." or path == "" then return "" else return path .. "/" end
+                local path = vim.fn.expand('%:h')
+                if path == '.' or path == '' then
+                    return ''
+                else
+                    return path .. '/'
+                end
             end,
             padding = { left = 1, right = 0 },
-            fmt = function(str) return str:gsub("/", "  "):gsub("%s+$", "") end,
-            color = 'NonText'
+            fmt = function(str) return str:gsub('/', '  '):gsub('%s+$', '') end,
+            color = 'NonText',
         }
 
         local filetype = {
             'filetype',
             padding = { left = 1, right = 0 },
-            icon_only = true
+            icon_only = true,
         }
 
         local filename = {
@@ -51,7 +55,7 @@ return {
             path = 0,
             symbols = {
                 unnamed = '',
-                newfile = ''
+                newfile = '',
             },
             file_status = false,
         }
@@ -59,56 +63,54 @@ return {
         local filestatus = {
             function()
                 if vim.bo.modified then
-                    return "●"
+                    return '●'
                 elseif not vim.bo.modifiable or vim.bo.readonly then
-                    return ""
+                    return ''
                 end
-                return ""
+                return ''
             end,
             padding = 1,
-            color = 'MiniIconsGreen'
+            color = 'MiniIconsGreen',
         }
 
         local diagnostics = {
             'diagnostics',
             update_in_insert = false,
-            symbols = { error = " ", warn = " ", hint = " ", info = "󰋽 " },
+            symbols = { error = ' ', warn = ' ', hint = ' ', info = '󰋽 ' },
         }
 
         local encoding = {
             'encoding',
             fmt = function(str) return string.upper(str) end,
-            padding = { left = 1, right = 0 }
+            padding = { left = 1, right = 0 },
         }
 
         local tabsize = {
             function()
-                local type = vim.bo.expandtab and "SPC" or "TAB"
+                local type = vim.bo.expandtab and 'SPC' or 'TAB'
                 local size = vim.bo.expandtab and vim.bo.shiftwidth or vim.bo.tabstop
-                return type .. ":" .. size
+                return type .. ':' .. size
             end,
             padding = { left = 1, right = 0 },
-            cond = function()
-                return vim.bo.filetype ~= ""
-            end,
+            cond = function() return vim.bo.filetype ~= '' end,
         }
 
         local fileformat = {
             'fileformat',
             padding = 1,
-            symbols = { unix = 'LF', dos = 'CRLF', mac = 'CR' }
+            symbols = { unix = 'LF', dos = 'CRLF', mac = 'CR' },
         }
 
         local progress = {
             '%P',
-            icon = "󰍜",
-            padding = { left = 1, right = 0 }
+            icon = '󰍜',
+            padding = { left = 1, right = 0 },
         }
 
         local showmode = {
-            require("noice").api.status.mode.get,
-            cond = require("noice").api.status.mode.has,
-            color = "NoiceVirtualText"
+            require('noice').api.status.mode.get,
+            cond = require('noice').api.status.mode.has,
+            color = 'NoiceVirtualText',
         }
 
         return {
@@ -128,11 +130,11 @@ return {
                 lualine_c = { basename, filetype, filename, filestatus },
                 lualine_x = { diagnostics, showmode },
                 lualine_y = { tabsize, encoding, fileformat },
-                lualine_z = { progress, 'location' }
+                lualine_z = { progress, 'location' },
             },
 
             tabline = {},
-            extensions = { 'nvim-dap-ui', 'toggleterm', 'trouble' }
+            extensions = { 'nvim-dap-ui', 'toggleterm', 'trouble' },
         }
-    end
+    end,
 }

@@ -4,5 +4,5 @@ return {
     cmd = 'Trouble',
     opts = {
         use_diagnostic_signs = true,
-    }
+    },
 }

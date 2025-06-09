@@ -9,7 +9,7 @@ return {
         start_in_insert = true,
         insert_mappings = true,
         persist_size = true,
-        direction = "horizontal",
+        direction = 'horizontal',
         close_on_exit = true,
         shell = vim.o.shell,
         float_opts = {
@@ -17,14 +17,14 @@ return {
             -- see :h nvim_open_win for details on borders however
             -- the 'curved' border is a custom border type
             -- not natively supported but implemented in this plugin.
-            border = "single",
+            border = 'single',
             highlights = {
-                border = "Normal",
-                background = "Normal",
-            }
+                border = 'Normal',
+                background = 'Normal',
+            },
         },
         winbar = {
             enabled = false,
         },
-    }
+    },
 }

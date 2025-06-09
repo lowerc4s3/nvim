@@ -32,44 +32,44 @@ return {
                 glyphs = {
                     bookmark = '',
                     folder = {
-                        default      = '',
-                        open         = '',
-                        empty        = '',
-                        empty_open   = '',
-                        symlink      = '',
+                        default = '',
+                        open = '',
+                        empty = '',
+                        empty_open = '',
+                        symlink = '',
                         symlink_open = '',
                     },
                     git = {
-                        unstaged  = '',
-                        staged    = '',
-                        unmerged  = '',
-                        renamed   = '',
+                        unstaged = '',
+                        staged = '',
+                        unmerged = '',
+                        renamed = '',
                         untracked = '',
-                        deleted   = '',
-                        ignored   = '',
+                        deleted = '',
+                        ignored = '',
                     },
                 },
             },
-            special_files = { "makefile" }
+            special_files = { 'makefile' },
         },
         update_focused_file = {
             update_root = true,
         },
         filters = {
-            custom = { ".DS_Store" },
+            custom = { '.DS_Store' },
         },
         actions = {
             file_popup = {
                 open_win_config = {
-                    border = "solid",
+                    border = 'solid',
                 },
             },
         },
         trash = {
-            cmd = "trash -rf",
+            cmd = 'trash -rf',
         },
         live_filter = {
-            prefix = "[󰈳]",
-        }
-    }
+            prefix = '[󰈳]',
+        },
+    },
 }

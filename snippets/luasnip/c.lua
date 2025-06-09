@@ -1,3 +1,4 @@
+-- stylua: ignore
 return {
     s({ trig = "ifndef", desc = "include guard" }, fmta([[
     #ifndef <>

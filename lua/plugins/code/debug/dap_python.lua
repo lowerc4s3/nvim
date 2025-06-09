@@ -14,7 +14,5 @@ return {
         'DapToggleBreakpoint',
         'DapToggleRepl',
     },
-    config = function()
-        require('dap-python').setup('~/.virtualenvs/debugpy/bin/python')
-    end
+    config = function() require('dap-python').setup('~/.virtualenvs/debugpy/bin/python') end,
 }

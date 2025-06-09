@@ -10,19 +10,19 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
         -- Enable inlay hints if possible
         local client = vim.lsp.get_client_by_id(event.data.client_id)
-        if not client then
-            return
-        end
+        if not client then return end
 
         if client:supports_method(vim.lsp.protocol.Methods.textDocument_inlayHint, event.buf) then
             vim.lsp.inlay_hint.enable(true)
         end
 
-        -- Format on save using lsp-format
-        require("lsp-format").on_attach(client, event.buf)
-
         -- Enable word references highlighting if possible
-        if client:supports_method(vim.lsp.protocol.Methods.textDocument_documentHighlight, event.buf) then
+        if
+            client:supports_method(
+                vim.lsp.protocol.Methods.textDocument_documentHighlight,
+                event.buf
+            )
+        then
             local highlight_augroup = augroup('word-lsp-highlight', { clear = false })
             autocmd({ 'CursorHold', 'CursorHoldI' }, {
                 buffer = event.buf,
@@ -47,25 +47,25 @@ vim.api.nvim_create_autocmd('LspAttach', {
     end,
 })
 
-vim.diagnostic.config({
+vim.diagnostic.config {
     -- Diagnostics virtual text is handled by tiny-inline-diagnostic.nvim
     virtual_text = false,
     update_in_insert = false,
     severety_sort = true,
     signs = {
         text = {
-            [vim.diagnostic.severity.ERROR] = "",
-            [vim.diagnostic.severity.WARN] = "",
-            [vim.diagnostic.severity.HINT] = "",
-            [vim.diagnostic.severity.INFO] = "",
+            [vim.diagnostic.severity.ERROR] = '',
+            [vim.diagnostic.severity.WARN] = '',
+            [vim.diagnostic.severity.HINT] = '',
+            [vim.diagnostic.severity.INFO] = '',
         },
         numhl = {
-            [vim.diagnostic.severity.ERROR] = "DiagnosticSignError",
-            [vim.diagnostic.severity.WARN] = "DiagnosticSignWarn",
-            [vim.diagnostic.severity.HINT] = "DiagnosticSignHint",
-            [vim.diagnostic.severity.INFO] = "DiagnosticSignInfo",
-        }
-    }
-})
+            [vim.diagnostic.severity.ERROR] = 'DiagnosticSignError',
+            [vim.diagnostic.severity.WARN] = 'DiagnosticSignWarn',
+            [vim.diagnostic.severity.HINT] = 'DiagnosticSignHint',
+            [vim.diagnostic.severity.INFO] = 'DiagnosticSignInfo',
+        },
+    },
+}
 
-require("lsp.servers")
+require('lsp.servers')

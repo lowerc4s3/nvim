@@ -1,6 +1,6 @@
 return {
     -- External tooling installer
-    "mason-org/mason.nvim",
+    'mason-org/mason.nvim',
     lazy = false,
-    opts = {}
+    opts = {},
 }

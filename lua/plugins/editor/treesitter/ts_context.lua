@@ -3,7 +3,7 @@ return {
     'nvim-treesitter/nvim-treesitter-context',
     dependencies = 'nvim-treesitter/nvim-treesitter',
     opts = {
-        mode = "topline",
+        mode = 'topline',
         max_lines = 2,
-    }
+    },
 }

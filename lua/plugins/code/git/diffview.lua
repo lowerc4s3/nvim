@@ -7,7 +7,7 @@ return {
         'DiffviewClose',
         'DiffviewToggleFiles',
         'DiffviewFocusFiles',
-        'DiffviewRefresh'
+        'DiffviewRefresh',
     },
     opts = {
         icons = {
@@ -19,10 +19,10 @@ return {
             fold_open = '',
         },
         file_panel = {
-            win_config = { width = 30 }
+            win_config = { width = 30 },
         },
         keymaps = {
-            file_panel = { { "n", "q", "<cmd>DiffviewClose<cr>", { desc = "Close diffview" } } }
-        }
+            file_panel = { { 'n', 'q', '<cmd>DiffviewClose<cr>', { desc = 'Close diffview' } } },
+        },
     },
 }

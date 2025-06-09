@@ -3,18 +3,18 @@ local lsp = vim.lsp
 lsp.config('gopls', {
     settings = {
         gopls = {
-            ["ui.inlayhint.hints"] = {
+            ['ui.inlayhint.hints'] = {
                 compositeLiteralFields = true,
                 constantValues = true,
-                parameterNames = true
+                parameterNames = true,
             },
-        }
-    }
+        },
+    },
 })
 
 lsp.config('rust_analyzer', {
     settings = {
-        ["rust-analyzer"] = {
+        ['rust-analyzer'] = {
             inlayHints = {
                 typeHints = false,
                 chainingHints = false,
@@ -22,22 +22,22 @@ lsp.config('rust_analyzer', {
                 closingBraceHints = false,
             },
             check = {
-                command = "clippy"
-            }
-        }
-    }
+                command = 'clippy',
+            },
+        },
+    },
 })
 
 lsp.config('jsonls', {
     settings = {
         json = {
-            schemas = require("schemastore").json.schemas(),
+            schemas = require('schemastore').json.schemas(),
             validate = { enable = true },
-        }
-    }
+        },
+    },
 })
 
-lsp.enable({
+lsp.enable {
     'bashls',
     'cmake',
     'rust_analyzer',
@@ -47,5 +47,5 @@ lsp.enable({
     'clangd',
     'gopls',
     'lua_ls',
-    'jsonls'
-})
+    'jsonls',
+}

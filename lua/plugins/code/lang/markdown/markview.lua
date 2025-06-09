@@ -1,36 +1,36 @@
 return {
     -- Render markdown/LaTeX/etc in buffer
-    "OXY2DEV/markview.nvim",
+    'OXY2DEV/markview.nvim',
     lazy = false,
     priority = 999,
     opts = {
         preview = {
-            filetypes = { "markdown", "md", "rmd", "quarto", "tex", "typst" },
-            modes = { "n", "no", "c" },
+            filetypes = { 'markdown', 'md', 'rmd', 'quarto', 'tex', 'typst' },
+            modes = { 'n', 'no', 'c' },
         },
         markdown = {
             enable = true,
             list_items = {
                 wrap = true,
                 marker_minus = {
-                    text = "•"
-                }
+                    text = '•',
+                },
             },
             tables = {
                 parts = {
-                    top = { "┌", "─", "┐", "┬" },
-                    header = { "│", "│", "│" },
-                    separator = { "├", "─", "┤", "┼" },
-                    row = { "│", "│", "│" },
-                    bottom = { "└", "─", "┘", "┴" },
+                    top = { '┌', '─', '┐', '┬' },
+                    header = { '│', '│', '│' },
+                    separator = { '├', '─', '┤', '┼' },
+                    row = { '│', '│', '│' },
+                    bottom = { '└', '─', '┘', '┴' },
 
-                    overlap = { "┝", "━", "┥", "┿" },
+                    overlap = { '┝', '━', '┥', '┿' },
 
-                    align_left = "╼",
-                    align_right = "╾",
-                    align_center = { "╴", "╶" }
-                }
-            }
+                    align_left = '╼',
+                    align_right = '╾',
+                    align_center = { '╴', '╶' },
+                },
+            },
         },
         latex = {
             -- TODO: Finish latex config
@@ -40,7 +40,7 @@ return {
             },
             symbols = {
                 enable = false,
-            }
-        }
-    }
+            },
+        },
+    },
 }

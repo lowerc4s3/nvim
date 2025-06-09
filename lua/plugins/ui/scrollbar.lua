@@ -10,7 +10,7 @@ return {
             'noice',
         },
         handlers = {
-            cursor = false
-        }
-    }
+            cursor = false,
+        },
+    },
 }
