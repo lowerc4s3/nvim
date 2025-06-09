@@ -6,7 +6,14 @@ return {
     opts = {
         select = {
             lookahead = true,
-        }
+            selection_modes = {
+                ["@function.outer"] = "V",
+                ["@loop.outer"] = "V",
+                ["@condition.outer"] = "V",
+                ["@class.outer"] = "V",
+                ["@comment.outer"] = "V",
+            },
+        },
     },
     config = function(_, opts)
         require("nvim-treesitter-textobjects").setup(opts)
@@ -25,9 +32,9 @@ return {
             ["iP"] = "@parameter.inner",
         }
 
-        local select_textobject = require("nvim-treesitter-textobjects.select").select_textobject
+        local select = require("nvim-treesitter-textobjects.select").select_textobject
         for lhs, capture in pairs(select_mappings) do
-            vim.keymap.set({ "x", "o" }, lhs, function() select_textobject(capture, "textobjects") end)
+            vim.keymap.set({ "x", "o" }, lhs, function() select(capture, "textobjects") end)
         end
     end,
     keys = {
