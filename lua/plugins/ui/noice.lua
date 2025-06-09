@@ -33,7 +33,13 @@ return {
         },
         views = {
             popup = { border = { style = "none" } },
-            cmdline = { win_options = { winhighlight = "Normal:NormalFloat" } }
+            cmdline = {
+                win_options = {
+                    winhighlight = {
+                        Normal = "NormalFloat"
+                    }
+                }
+            }
         },
         routes = {
             {
