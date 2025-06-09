@@ -42,6 +42,7 @@
   "nvim-treesitter": { "branch": "main", "commit": "0fb1c6e92e6a03374d578b362301dbd22abd3840" },
   "nvim-treesitter-context": { "branch": "master", "commit": "464a443b5a6657f39772b20baa95d02ffe97b268" },
   "nvim-treesitter-textobjects": { "branch": "main", "commit": "fa32a45fdbab9c9c3bda9ecec9b12dddb221b927" },
+  "nvim-various-textobjs": { "branch": "main", "commit": "e60113244e43c8aefc118626056b310261211175" },
   "onedark.nvim": { "branch": "main", "commit": "b5161f0c631571640485be5d1c059cab82c86872" },
   "onenord.nvim": { "branch": "main", "commit": "dbf4c848929c473ec548a080fc32cb85aa2af706" },
   "outline.nvim": { "branch": "main", "commit": "321f89ef79f168a78685f70d70c52d0e7b563abb" },
