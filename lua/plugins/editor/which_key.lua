@@ -3,7 +3,7 @@ return {
     'folke/which-key.nvim',
     ---@class wk.Opts
     opts = {
-        preset = "classic",
+        preset = 'classic',
         plugins = {
             presets = {
                 operators = false,
@@ -18,13 +18,13 @@ return {
 
         -- Don't show translated mappings from langmapper
         filter = function(mapping)
-            return mapping.desc and mapping.desc:find("wkignore", 1, true) ~= 1
+            return mapping.desc and mapping.desc:find('wkignore', 1, true) ~= 1
         end,
 
         icons = {
-            breadcrumb = "",
-            separator = "│",
-            group = "",
+            breadcrumb = '',
+            separator = '│',
+            group = '',
             rules = false,
         },
 
@@ -79,7 +79,7 @@ return {
             { '<leader>c', group = 'Code', icon = '' },
             { '<leader>cD', '<cmd>Trouble diagnostics toggle<cr>', icon = '', desc = 'Diagnostics (workspace)' },
             { '<leader>cd', '<cmd>Trouble diagnostics toggle filter.buf=0<cr>', icon = '', desc = 'Diagnostics' },
-            { '<leader>cf', function() vim.lsp.buf.format { async = true } end, icon = '', desc = 'Format' },
+            { '<leader>cf', function() require("conform").format() end, icon = '', desc = 'Format' },
             { '<leader>cr', '<cmd>Telescope lsp_references<CR>', icon = '', desc = 'References' },
             { '<leader>co', '<cmd>Outline<CR>', icon = '', desc = 'Symbols outline' },
             { '<leader>cc', '<cmd>ColorizerToggle<cr>', icon = '', desc = 'Toggle colorizer' },
@@ -119,6 +119,6 @@ return {
                 icon = '',
                 desc = 'Fix broken cmdline'
             },
-        }
-    }
+        },
+    },
 }
