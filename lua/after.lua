@@ -1,26 +1,58 @@
 --- File for performing actions after loading all plugins (usually highlights) ---
 
+---@param name string
+---@param val vim.api.keyset.highlight
+local function set_hl(name, val)
+    vim.api.nvim_set_hl(0, name, val)
+end
+
+---@param name string
+---@param val string | integer
+local function link_hl(name, val)
+    vim.api.nvim_set_hl(0, name, { link = val })
+end
+
+
+---@param name string
+---@param type "fg" | "bg"
+---@return string
+local function get_hl_part(name, type)
+    return vim.fn.synIDattr(vim.fn.synIDtrans(vim.fn.hlID(name)), type, "gui")
+end
+
+---@param name string
+local function get_fg(name)
+    return get_hl_part(name, "fg")
+end
+
+---@param name string
+local function get_bg(name)
+    return get_hl_part(name, "bg")
+end
+
 -- Set highlights
 
 -- Telescope
-vim.api.nvim_set_hl(0, 'TelescopePromptBorder', { link = 'CursorLine' })
-vim.api.nvim_set_hl(0, 'TelescopePromptNormal', { link = 'CursorLine' })
-vim.api.nvim_set_hl(0, 'TelescopeNormal', { link = 'lualine_c_normal' })
-vim.api.nvim_set_hl(0, 'TelescopeNormal', { link = 'lualine_c_normal' })
-vim.api.nvim_set_hl(0, 'TelescopePreviewBorder', { link = 'lualine_c_normal' })
-vim.api.nvim_set_hl(0, 'TelescopeResultsBorder', { link = 'lualine_c_normal' })
-vim.api.nvim_set_hl(0, 'TelescopePreview', { link = 'lualine_c_normal' })
-vim.api.nvim_set_hl(0, 'TelescopeResults', { link = 'lualine_c_normal' })
-vim.api.nvim_set_hl(0, 'TelescopeTitle', { link = 'lualine_a_insert' })
+link_hl('TelescopePromptBorder', 'CursorLine')
+link_hl('TelescopePromptNormal', 'CursorLine')
+link_hl('TelescopeNormal', 'lualine_c_normal')
+link_hl('TelescopeNormal', 'lualine_c_normal')
+link_hl('TelescopePreviewBorder', 'lualine_c_normal')
+link_hl('TelescopeResultsBorder', 'lualine_c_normal')
+link_hl('TelescopePreview', 'lualine_c_normal')
+link_hl('TelescopeResults', 'lualine_c_normal')
+link_hl('TelescopeTitle', 'lualine_a_insert')
 
 -- Floating window borders
--- vim.api.nvim_set_hl(0, 'FloatBorder', { link = 'NormalFloat' })
+link_hl('FloatBorder', 'NormalFloat')
+
+-- mini.files
+set_hl("MiniFilesBorderModified", { fg = get_fg("WarningMsg"), bg = get_bg("NormalFloat") })
+link_hl("MiniFilesTitle", "FloatBorder")
+link_hl("MiniFilesTitleFocused", "FloatBorder")
 
 -- Disable nvimtree separator
-vim.api.nvim_set_hl(0, 'NvimTreeVertSplit', { link = 'Ignore' })
-
--- Fidget
-vim.api.nvim_set_hl(0, "FidgetTitle", { link = "Bold" })
+link_hl('NvimTreeVertSplit', 'Ignore')
 
 -- Cattpuccin termcolors (catppuccin theme integration is ass)
 if vim.g.neovide and vim.g.colors_name:find("catppuccin", 1, true) == 1 then
