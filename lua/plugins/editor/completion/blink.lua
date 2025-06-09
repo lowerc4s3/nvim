@@ -53,6 +53,9 @@ return {
         appearance = {
             nerd_font_variant = "normal",
         },
+        signature = {
+            enabled = true,
+        },
         completion = {
             documentation = {
                 auto_show = true,
@@ -93,9 +96,6 @@ return {
                     }
                 }
             }
-        },
-        fuzzy = {
-            implementation = "prefer_rust_with_warning"
         },
         sources = {
             default = function(_)

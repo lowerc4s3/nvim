@@ -3,7 +3,7 @@ local autocmd = vim.api.nvim_create_autocmd
 local augroup = vim.api.nvim_create_augroup
 
 vim.api.nvim_create_autocmd('LspAttach', {
-    group = vim.api.nvim_create_augroup('kickstart-lsp-attach', { clear = true }),
+    group = augroup('lsp-attach', { clear = true }),
     callback = function(event)
         local oa_opts = { silent = true, buffer = event.buf }
         map('n', 'gd', vim.lsp.buf.definition, oa_opts)

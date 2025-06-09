@@ -26,6 +26,3 @@ map({ "n", "i", "t" }, "<C-\\>", "<cmd>ToggleTerm<CR>", { silent = true, desc = 
 
 map("n", "@", '<cmd>execute "noautocmd norm!" . v:count1 . "@" . getcharstr()<CR>',
     { silent = true, desc = "Instant macros" })
-
-map('n', ']d', function() vim.diagnostic.jump { count = 1 } end, { silent = true, desc = "Jump to next diagnostic" })
-map('n', '[d', function() vim.diagnostic.jump { count = -1 } end, { silent = true, desc = "Jump to previous diagnostic" })
