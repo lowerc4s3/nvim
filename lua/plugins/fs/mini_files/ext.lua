@@ -47,17 +47,23 @@ local function open()
 end
 
 -- FIXME: Sometimes cannot set buffer name
-local function sync_on_write(event)
+local function sync_on_write(buf)
     vim.schedule(function()
         vim.bo.buftype = "acwrite"
         vim.api.nvim_buf_set_name(0, tostring(vim.api.nvim_get_current_win()))
         vim.api.nvim_create_autocmd('BufWriteCmd', {
-            buffer = event.data.buf_id,
+            buffer = buf,
             callback = function()
                 require('mini.files').synchronize()
             end,
         })
     end)
+end
+
+local function hide_borders(win)
+    local config = vim.api.nvim_win_get_config(win)
+    config.border = "solid"
+    vim.api.nvim_win_set_config(win, config)
 end
 
 ---@param opts mini.files.ext.Config
@@ -74,6 +80,12 @@ function M.setup(opts)
                 vim.keymap.set("n", opts.mappings.copy_path, copy_path, map_opts(buf_id, "Copy absolute path"))
             end
             if opts.sync_on_write then sync_on_write(event) end
+        end
+    })
+    vim.api.nvim_create_autocmd("User", {
+        pattern = "MiniFilesWindowOpen",
+        callback = function(event)
+            hide_borders(event.data.win_id)
         end
     })
 end

@@ -16,6 +16,7 @@ return {
         },
         windows = {
             preview = true,
+            width_preview = 50,
         }
     },
     config = function(_, opts)
