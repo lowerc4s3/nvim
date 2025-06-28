@@ -1,6 +1,8 @@
-# milcvim 🥛 – all-purpose neovim configuration
+# milcvim 🥛
 
-milcvim is a personal not-so-small neovim config
+personal not-so-small neovim config
+
+<img width="1430" alt="coding example" src="https://github.com/user-attachments/assets/3859600c-dbfb-488a-985a-cadfa68a0701" />
 
 ## features
 - using idiomatic vim features where reasonable
@@ -32,4 +34,10 @@ keybind. or you can install them with system's package manager as always
 ## screenshots
 goes hard, feel free to ~~screenshot~~ star repo
 
-> lemme change them real quick
+<img width="1430" alt="dashboard" src="https://github.com/user-attachments/assets/7705031a-6e01-4c5d-bb87-bb96d08fa33a" />
+
+<img width="1430" alt="selecting buffers with telescope (themed liked nvchad)" src="https://github.com/user-attachments/assets/f7afe225-6b30-40c4-8577-228448f4d24e" />
+
+<img width="1430" alt="markdown preview, notifications and cmdline" src="https://github.com/user-attachments/assets/04f59465-1868-474c-a899-7632377ba8db" />
+
+<img width="1430" alt="file manager with menu showed" src="https://github.com/user-attachments/assets/18591b26-c9c6-4007-9e9b-e8e2768b6d1c" />
