@@ -71,6 +71,9 @@ return {
                 enabled = false,
                 show_without_menu = false,
             },
+            trigger = {
+                show_on_backspace = true,
+            },
             list = {
                 selection = {
                     preselect = false,
