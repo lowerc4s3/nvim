@@ -64,9 +64,12 @@ return {
             { '<leader>ft', '<cmd>TodoTelescope<CR>', icon = '', desc = 'Todos' },
 
             { '<leader>g', group = 'Git', icon = '󰊢' },
-            { '<leader>gg', '<cmd>Neogit<CR>', icon = '󰊢', desc = 'Open Neogit' },
-            { '<leader>gd', '<cmd>DiffviewOpen<CR>', icon = '', desc = 'Open Diff' },
-            { '<leader>gc', '<cmd>DiffviewClose<CR>', icon = '', desc = 'Close Diff' },
+            { '<leader>gg', '<cmd>Neogit<CR>', icon = '󰊢', desc = 'Neogit' },
+            { '<leader>gd', '<cmd>Neogit diff<CR>', icon = '', desc = 'Diff' },
+            { '<leader>gl', '<cmd>Neogit log<CR>', icon = '', desc = 'Log' },
+            { '<leader>gp', '<cmd>Neogit pull<CR>', icon = '', desc = 'Pull' },
+            { '<leader>gP', '<cmd>Neogit push<CR>', icon = '', desc = 'Push' },
+            { '<leader>gb', '<cmd>Neogit branch<CR>', icon = '', desc = 'Branch' },
 
             { '<leader>d', group = 'Debug', icon = '' },
             { '<leader>db', '<cmd>DapContinue<cr>', icon = '', desc = 'Start debugging' },
