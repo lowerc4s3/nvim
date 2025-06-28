@@ -24,6 +24,12 @@ lsp.config('rust_analyzer', {
             check = {
                 command = 'clippy',
             },
+            imports = {
+                granularity = { group = 'module' },
+            },
+            assist = {
+                preferSelf = true,
+            },
         },
     },
 })
