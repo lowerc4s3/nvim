@@ -28,6 +28,7 @@ return {
             telescopeprompt = { glyph = '' },
             overseerform = { glyph = '' },
             overseerlist = { glyph = '' },
+            typst = { glyph = '' },
         },
     },
 }

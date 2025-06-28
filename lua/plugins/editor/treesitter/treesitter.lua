@@ -1,5 +1,5 @@
 return {
-    -- Syntax highlighting
+    -- Syntax parser for highlights, textobjects, etc
     'nvim-treesitter/nvim-treesitter',
     lazy = false,
     branch = 'main',

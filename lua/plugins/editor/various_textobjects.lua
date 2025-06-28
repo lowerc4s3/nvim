@@ -1,4 +1,5 @@
 return {
+    -- Additional textobjects
     'chrisgrieser/nvim-various-textobjs',
     event = 'VeryLazy',
     opts = {},

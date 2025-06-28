@@ -1,4 +1,5 @@
 return {
+    -- Notifications UI
     'folke/snacks.nvim',
     opts = {
         notifier = {
