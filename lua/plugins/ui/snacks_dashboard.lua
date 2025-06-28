@@ -22,19 +22,13 @@ return {
                         key = 'd',
                         icon = ' ',
                         desc = 'Browse files',
-                        action = ':Telescope file_browser',
+                        action = function() MiniFiles.open() end,
                     },
                     {
                         key = 'p',
                         icon = ' ',
                         desc = 'Open project',
                         action = ':Telescope projects',
-                    },
-                    {
-                        key = 'z',
-                        icon = ' ',
-                        desc = 'Jump to directory',
-                        action = function() require('telescope').extensions.zoxide.list() end,
                     },
                     {
                         key = 'l',
@@ -51,17 +45,18 @@ return {
                 icon = { '%s', hl = 'Comment' },
             },
             sections = {
-                -- BUG: Terminal section will show output with huge lag
-                -- so it's disabled now (tracked by https://github.com/folke/snacks.nvim/issues/1769)
-                -- {
-                --     section = "terminal",
-                --     cmd = "chafa ~/.config/nvim/assets/splash.jpeg -f symbols --symbols vhalf -s 37x12 --stretch; sleep .1",
-                --     height = 12,
-                --     width = 37,
-                --     padding = 1,
-                --     align = "center",
-                --     indent = 12
-                -- },
+                -- NOTE: Some commands might show with huge lag,
+                -- maybe this happens if the program tries to probe terminal,
+                -- check here https://github.com/folke/snacks.nvim/issues/1769
+                {
+                    section = 'terminal',
+                    cmd = 'chafa ~/.config/nvim/assets/splash.jpeg --probe off -f symbols --symbols vhalf -s 37x12 --stretch; sleep .1',
+                    height = 12,
+                    width = 37,
+                    padding = 1,
+                    align = 'center',
+                    indent = 12,
+                },
                 {
                     section = 'keys',
                     gap = 1,
