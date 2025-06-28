@@ -7,6 +7,7 @@ local M = {}
 ---@class mini.files.ext.Config.Mappings
 ---@field open string?
 ---@field copy_path string?
+---@field cd string?
 
 ---@type mini.files.ext.Config
 local default_opts = {
@@ -63,6 +64,31 @@ local function open()
     end
 end
 
+local function cd()
+    local entry = MiniFiles.get_fs_entry()
+    if not entry then
+        vim.notify(
+            'No file or directory selected',
+            vim.log.levels.WARN,
+            { title = 'mini.files.ext' }
+        )
+        return
+    end
+
+    if vim.uv.fs_stat(entry.path).type ~= 'directory' then
+        vim.notify(
+            string.format('Cannot CWD to %s: not a directory', entry.path),
+            vim.log.levels.WARN,
+            { title = 'mini.files.ext' }
+        )
+        return
+    end
+
+    vim.fn.chdir(entry.path)
+    MiniFiles.go_in()
+    vim.notify('Changed CWD to ' .. entry.path, vim.log.levels.INFO, { title = 'mini.files.ext' })
+end
+
 -- FIXME: Sometimes cannot set buffer name
 local function sync_on_write(buf_id)
     vim.schedule(function()
@@ -108,6 +134,9 @@ function M.setup(opts)
                 )
             end
             if opts.sync_on_write then sync_on_write(event.data.buf_id) end
+            if opts.mappings.cd then
+                vim.keymap.set('n', opts.mappings.cd, cd, map_opts(buf_id, 'Change CWD'))
+            end
         end,
     })
     vim.api.nvim_create_autocmd('User', {

@@ -1,5 +1,5 @@
 return {
-    -- File manager
+    -- Editable file manager with column view
     'echasnovski/mini.files',
     opts = {
         mappings = {
@@ -10,6 +10,7 @@ return {
         ---@type mini.files.ext.Config
         ext = {
             mappings = {
+                cd = 'gd',
                 open = 'gx',
                 copy_path = 'gy',
             },
