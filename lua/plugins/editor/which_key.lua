@@ -77,15 +77,14 @@ return {
             { '<leader>ds', '<cmd>DapTerminate<cr>', icon = '', desc = 'Stop debugging' },
 
             { '<leader>c', group = 'Code', icon = '' },
-            { '<leader>cD', '<cmd>Trouble diagnostics toggle<cr>', icon = '', desc = 'Diagnostics (workspace)' },
-            { '<leader>cd', '<cmd>Trouble diagnostics toggle filter.buf=0<cr>', icon = '', desc = 'Diagnostics' },
+            { '<leader>cD', vim.diagnostic.setqflist, icon = '', desc = 'Diagnostics (workspace)' },
+            { '<leader>cd', vim.diagnostic.setloclist, icon = '', desc = 'Diagnostics' },
             { '<leader>cf', function() require("conform").format() end, icon = '', desc = 'Format' },
-            { '<leader>cr', '<cmd>Telescope lsp_references<CR>', icon = '', desc = 'References' },
             { '<leader>co', '<cmd>Outline<CR>', icon = '', desc = 'Symbols outline' },
             { '<leader>cc', '<cmd>ColorizerToggle<cr>', icon = '', desc = 'Toggle colorizer' },
-            { '<leader>cT', '<cmd>TodoTrouble<CR>', icon = '', desc = 'Todos' },
+            { '<leader>cT', '<cmd>TodoQuickFix<CR>', icon = '', desc = 'Todos' },
             { '<leader>ct', group = 'Tasks', icon = '' },
-            { '<leader>ctr', '<cmd>OverseerRun<cr>', icon = '', desc = 'Run' },
+            { '<leader>ctt', '<cmd>OverseerRun<cr>', icon = '', desc = 'Run' },
             { '<leader>cto', '<cmd>OverseerOpen<cr>', icon = '', desc = 'Open output' },
 
             { '<leader>p', group = 'Packages', icon = '' },
@@ -110,7 +109,7 @@ return {
             { '<leader>ne', '<cmd>Noice errors<cr>', icon = '', desc = 'Show errors' },
             { '<leader>nd', '<cmd>Noice dismiss<cr>', icon = '󰱞', desc = 'Dismiss visible' },
             {
-                -- Yup, that's stupid
+                -- HACK: Yup, that's stupid
                 '<leader>nf',
                 function()
                     vim.cmd('Noice disable')

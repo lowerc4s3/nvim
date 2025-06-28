@@ -134,7 +134,8 @@ return {
             },
 
             tabline = {},
-            extensions = { 'nvim-dap-ui', 'toggleterm', 'trouble' },
+            -- extensions = { 'nvim-dap-ui', 'toggleterm', 'trouble' },
+            extensions = { 'nvim-dap-ui', 'toggleterm', 'man', 'quickfix' },
         }
     end,
 }
