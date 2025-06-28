@@ -71,6 +71,7 @@ opt.laststatus = 3 -- Global statusline
 opt.title = true -- Set title
 opt.showcmd = false
 opt.guicursor:prepend { 'a:Cursor' } -- Force Cursor hl in all modes
+opt.guicursor:prepend { 'i-c-sm:blinkon500-blinkoff500-blinkwait500' }
 
 --- Autocmds ---
 augroup('YankHighlight', { clear = false })
