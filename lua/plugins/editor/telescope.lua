@@ -39,7 +39,15 @@ return {
 
             extensions = {
                 ['ui-select'] = {
-                    layout_strategy = 'vertical',
+                    require('telescope.themes').get_ivy {
+                        prompt_title = false,
+                        results_title = false,
+                        border = false,
+                        layout_config = {
+                            height = 10,
+                        },
+                    },
+                    codeactions = false,
                 },
             },
         }
