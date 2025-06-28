@@ -26,36 +26,61 @@ end
 local function copy_path()
     local entry = MiniFiles.get_fs_entry()
     if not entry then
-        vim.notify('No file or directory selected', vim.log.levels.WARN)
+        vim.notify(
+            'No file or directory selected',
+            vim.log.levels.WARN,
+            { title = 'mini.files.ext' }
+        )
         return
     end
 
     vim.fn.setreg('+', entry.path)
+    vim.notify(
+        string.format('Copied %s to system clipboard', entry.path),
+        vim.log.levels.INFO,
+        { title = 'mini.files.ext' }
+    )
 end
 
 local function open()
     local entry = MiniFiles.get_fs_entry()
     if not entry then
-        vim.notify('No file or directory selected', vim.log.levels.WARN)
+        vim.notify(
+            'No file or directory selected',
+            vim.log.levels.WARN,
+            { title = 'mini.files.ext' }
+        )
         return
     end
 
     local _, err = vim.ui.open(entry.path)
     if err then
-        vim.notify(string.format('Cannot open %s: %s', entry.path, err), vim.log.levels.ERROR)
+        vim.notify(
+            string.format('Cannot open %s: %s', entry.path, err),
+            vim.log.levels.ERROR,
+            { title = 'mini.files.ext' }
+        )
     end
 end
 
 -- FIXME: Sometimes cannot set buffer name
-local function sync_on_write(buf)
+local function sync_on_write(buf_id)
     vim.schedule(function()
         vim.bo.buftype = 'acwrite'
-        vim.api.nvim_buf_set_name(0, tostring(vim.api.nvim_get_current_win()))
+        vim.api.nvim_buf_set_name(buf_id, require('mini.files').get_fs_entry(0, 1).path)
         vim.api.nvim_create_autocmd('BufWriteCmd', {
-            buffer = buf,
+            buffer = buf_id,
             callback = function() require('mini.files').synchronize() end,
         })
     end)
+    -- vim.schedule(function()
+    --     vim.bo.buftype = 'acwrite'
+    --     vim.api.nvim_buf_set_name(0, tostring(vim.api.nvim_get_current_win()))
+    --     vim.api.nvim_create_autocmd('BufWriteCmd', {
+    --         buffer = buf,
+    --         callback = function() require('mini.files').synchronize() end,
+    --     })
+    -- end)
 end
 
 local function hide_borders(win)
@@ -82,7 +107,7 @@ function M.setup(opts)
                     map_opts(buf_id, 'Copy absolute path')
                 )
             end
-            if opts.sync_on_write then sync_on_write(event) end
+            if opts.sync_on_write then sync_on_write(event.data.buf_id) end
         end,
     })
     vim.api.nvim_create_autocmd('User', {
