@@ -6,6 +6,7 @@ return {
     opts = {
         preview = {
             filetypes = { 'markdown', 'md', 'rmd', 'quarto', 'tex', 'typst' },
+            filetypes = { 'markdown', 'md', 'rmd' },
             modes = { 'n', 'no', 'c' },
         },
         markdown = {

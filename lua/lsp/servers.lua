@@ -48,4 +48,5 @@ lsp.enable {
     'gopls',
     'lua_ls',
     'jsonls',
+    'tinymist',
 }
