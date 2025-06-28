@@ -1,6 +1,5 @@
 local opt = vim.opt
 local autocmd = vim.api.nvim_create_autocmd
-local augroup = vim.api.nvim_create_augroup
 local cmd = vim.cmd
 local g = vim.g
 
@@ -45,6 +44,7 @@ g.cursorhold_updatetime = 400 -- CursorHold activation time (used for lsp diagno
 g.mapleader = ' ' -- Set leader key
 g.maplocalleader = ' ' -- Set leader key
 cmd('language en_US.UTF-8') -- Set english
+opt.sessionoptions:prepend { 'globals' }
 -- opt.spell               = true
 opt.spelllang = 'en_us,ru'
 
@@ -73,17 +73,7 @@ opt.showcmd = false
 opt.guicursor:prepend { 'a:Cursor' } -- Force Cursor hl in all modes
 opt.guicursor:prepend { 'i-c-sm:blinkon500-blinkoff500-blinkwait500' }
 
---- Autocmds ---
-augroup('YankHighlight', { clear = false })
-autocmd('TextYankPost', {
-    desc = 'Highlight yank',
-    group = 'YankHighlight',
-    pattern = '*',
-    callback = function()
-        vim.highlight.on_yank { timeout = 100, higroup = 'Visual', on_visual = false }
-    end,
-})
-
+-- --- Autocmds ---
 autocmd('FileType', {
     desc = "Quit help pages with 'q'",
     pattern = { 'help', 'qf', 'man' },
