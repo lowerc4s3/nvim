@@ -9,7 +9,6 @@ return {
             leap = true,
             which_key = true,
             telescope = false,
-            lsp_trouble = true,
             symbols_outline = true,
             nvim_surround = true,
             dap = true,
