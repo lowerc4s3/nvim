@@ -36,6 +36,7 @@ require('lazy').setup({
     { import = 'plugins.code.git' },
     { import = 'plugins.code.lang.c' },
     { import = 'plugins.code.lang.markdown' },
+    { import = 'plugins.code.lang.typst' },
     { import = 'plugins.code.lsp' },
     { import = 'plugins.code.debug' },
 
