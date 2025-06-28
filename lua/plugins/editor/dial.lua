@@ -58,6 +58,16 @@ return {
                     cyclic = true,
                 },
             },
+            markdown = {
+                augend.integer.alias.decimal_int,
+                augend.integer.alias.hex,
+                augend.integer.alias.binary,
+                augend.constant.new {
+                    elements = { '[ ]', '[x]' },
+                    word = true,
+                    cyclic = true,
+                },
+            },
         }
     end,
 }

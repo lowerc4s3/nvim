@@ -4,8 +4,10 @@ return {
     lazy = false,
     priority = 999,
     opts = {
+        experimental = {
+            check_rtp_message = false,
+        },
         preview = {
-            filetypes = { 'markdown', 'md', 'rmd', 'quarto', 'tex', 'typst' },
             filetypes = { 'markdown', 'md', 'rmd' },
             modes = { 'n', 'no', 'c' },
         },
@@ -32,16 +34,7 @@ return {
                     align_center = { '╴', '╶' },
                 },
             },
-        },
-        latex = {
-            -- TODO: Finish latex config
-            enable = false,
-            fonts = {
-                enable = false,
-            },
-            symbols = {
-                enable = false,
-            },
+            latex = { enabled = false },
         },
     },
 }
