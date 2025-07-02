@@ -13,6 +13,8 @@ return {
                 cd = 'gd',
                 open = 'gx',
                 copy_path = 'gy',
+                open_split = '<C-S>',
+                open_vsplit = '<C-V>',
             },
         },
         windows = {

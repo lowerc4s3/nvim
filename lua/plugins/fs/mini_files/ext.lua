@@ -8,6 +8,8 @@ local M = {}
 ---@field open string?
 ---@field copy_path string?
 ---@field cd string?
+---@field open_split string?
+---@field open_vsplit string?
 
 ---@type mini.files.ext.Config
 local default_opts = {
@@ -75,7 +77,8 @@ local function cd()
         return
     end
 
-    if vim.uv.fs_stat(entry.path).type ~= 'directory' then
+    -- if vim.uv.fs_stat(entry.path).type ~= 'directory' then
+    if entry.fs_type ~= 'directory' then
         vim.notify(
             string.format('Cannot CWD to %s: not a directory', entry.path),
             vim.log.levels.WARN,
@@ -109,15 +112,53 @@ local function sync_on_write(buf_id)
     -- end)
 end
 
-local function hide_borders(win)
-    local config = vim.api.nvim_win_get_config(win)
+---@param win_id integer
+local function hide_borders(win_id)
+    local config = vim.api.nvim_win_get_config(win_id)
     config.border = 'solid'
-    vim.api.nvim_win_set_config(win, config)
+    vim.api.nvim_win_set_config(win_id, config)
+end
+
+---@param direction 'vertical' | 'horizontal'
+---@return fun()
+local function open_in_split(direction)
+    return function()
+        local entry = MiniFiles.get_fs_entry()
+        if not entry then
+            vim.notify(
+                'No file or directory selected',
+                vim.log.levels.WARN,
+                { title = 'mini.files.ext' }
+            )
+            return
+        end
+
+        -- Don't allow to create split with directories
+        if entry.fs_type ~= 'file' then
+            vim.notify(
+                string.format('Cannot open %s in split: not a file', entry.path),
+                vim.log.levels.WARN,
+                { title = 'mini.files.ext' }
+            )
+            return
+        end
+
+        -- Make new window and set it as target
+        local cur_target = MiniFiles.get_explorer_state().target_window
+        local new_target = vim.api.nvim_win_call(cur_target, function()
+            vim.cmd(direction == 'horizontal' and 'split' or 'vsplit')
+            return vim.api.nvim_get_current_win()
+        end)
+
+        MiniFiles.set_target_window(new_target)
+        MiniFiles.go_in { close_on_file = true }
+    end
 end
 
 ---@param opts mini.files.ext.Config
 function M.setup(opts)
     opts = vim.tbl_deep_extend('force', default_opts, opts)
+
     vim.api.nvim_create_autocmd('User', {
         pattern = 'MiniFilesBufferCreate',
         callback = function(event)
@@ -137,8 +178,25 @@ function M.setup(opts)
             if opts.mappings.cd then
                 vim.keymap.set('n', opts.mappings.cd, cd, map_opts(buf_id, 'Change CWD'))
             end
+            if opts.mappings.open_split then
+                vim.keymap.set(
+                    'n',
+                    opts.mappings.open_split,
+                    open_in_split('horizontal'),
+                    map_opts(buf_id, 'Open in horizontal split')
+                )
+            end
+            if opts.mappings.open_vsplit then
+                vim.keymap.set(
+                    'n',
+                    opts.mappings.open_vsplit,
+                    open_in_split('vertical'),
+                    map_opts(buf_id, 'Open in horizontal split')
+                )
+            end
         end,
     })
+
     vim.api.nvim_create_autocmd('User', {
         pattern = 'MiniFilesWindowOpen',
         callback = function(event) hide_borders(event.data.win_id) end,
